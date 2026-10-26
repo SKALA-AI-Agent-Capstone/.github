@@ -68,7 +68,7 @@ flowchart LR
 
 ## 시스템 아키텍처
 
-[<img width="100%" alt="VeRo 시스템 아키텍처 1차 개선안: OCR·VLM 직렬 처리, Agent 도구 선택, 독립 검증과 HITL" src="./assets/architecture.svg" />](./assets/architecture.svg)
+[<img width="100%" alt="VeRo 시스템 아키텍처 1차 개선안" src="./assets/architecture_fin.png" />](./assets/architecture_fin.png)
 
 OCR·VLM 직렬 처리와 정합성 검증 → Agent 도구 선택 → 독립 모델의 타당성 검증 → 문구 재작성과 사람의 결정으로 이어지는 **1차 개선안**입니다. 과금은 Spring 내부에서 처리하고, 업무·지식·Agent 상태는 PostgreSQL 안에서 구분합니다.
 
