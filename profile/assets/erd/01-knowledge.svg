@@ -1,0 +1,622 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="1800" height="1703" viewBox="0 0 1800 1703" role="img" aria-label="VeRo ERD: RAG 지식 저장소 (knowledge)">
+<rect width="100%" height="100%" fill="white"/>
+<text x="40" y="55" fill="#202938" font-size="34" font-weight="700" font-family="Apple SD Gothic Neo, Noto Sans CJK KR, sans-serif">VeRo ERD: RAG 지식 저장소 (knowledge)</text>
+<text x="40" y="91" fill="#4f5b6d" font-size="20" font-weight="400" font-family="Apple SD Gothic Neo, Noto Sans CJK KR, sans-serif">2026-10-26 pull한 코드 기준 | backend dfc4f16 / ai_agent 056321c | V25 (구조 V24와 동일)</text>
+<text x="40" y="123" fill="#4f5b6d" font-size="19" font-weight="400" font-family="Apple SD Gothic Neo, Noto Sans CJK KR, sans-serif">전체 FK 연결 2개 | 실선: DB FK, 점선: 논리 참조 | PK: 기본 키, UK: 고유 키, NN: NOT NULL | 실제 DB 적용 상태는 미확인</text>
+<g stroke="#81708f" stroke-width="1.8" fill="none"><path d="M45,169h85"/><path d="M56,159v20 M67,159v20"/></g><text x="145" y="176" fill="#4f5b6d" font-size="20" font-weight="400" font-family="Apple SD Gothic Neo, Noto Sans CJK KR, sans-serif">1: 필수 한 건</text>
+<g stroke="#81708f" stroke-width="1.8" fill="none"><path d="M420,169h85"/><circle cx="455" cy="169" r="7" fill="white"/><path d="M432,159v20"/></g><text x="520" y="176" fill="#4f5b6d" font-size="20" font-weight="400" font-family="Apple SD Gothic Neo, Noto Sans CJK KR, sans-serif">0..1: 선택 한 건</text>
+<g stroke="#81708f" stroke-width="1.8" fill="none"><path d="M840,169h85"/><circle cx="875" cy="169" r="7" fill="white"/><path d="M840,158L862,169L840,180 M840,169h22"/></g><text x="940" y="176" fill="#4f5b6d" font-size="20" font-weight="400" font-family="Apple SD Gothic Neo, Noto Sans CJK KR, sans-serif">0..N: 0건 이상 여러 건</text>
+<text x="40" y="213" fill="#4f5b6d" font-size="18" font-weight="400" font-family="Apple SD Gothic Neo, Noto Sans CJK KR, sans-serif">관계명 아래 괄호는 자식 테이블의 FK 컬럼이다. 복합 PK 또는 UK 표시는 구성 컬럼 각각에 붙인다.</text>
+<g transform="translate(99.5,235)">
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(18 1342.8)">
+<title>ERD</title>
+<polygon fill="white" stroke="none" points="-18,18 -18,-1342.8 1583.03,-1342.8 1583.03,18 -18,18"/>
+<!-- knowledge.document_versions&#45;&gt;knowledge.chunks -->
+<g id="fk_knowledge_chunks_document_version_id" class="edge">
+<title>knowledge.document_versions&#45;&gt;knowledge.chunks</title>
+<path fill="none" stroke="#8b7b9f" stroke-width="1.6" d="M405.53,-631.08C405.53,-598 405.53,-564.79 405.53,-532.52"/>
+<polygon fill="#8b7b9f" stroke="#8b7b9f" stroke-width="1.6" points="413.53,-645.22 397.53,-645.22 397.53,-642.02 413.53,-642.02 413.53,-645.22"/>
+<polyline fill="none" stroke="#8b7b9f" stroke-width="1.6" points="405.53,-646.82 405.53,-638.82"/>
+<polygon fill="#8b7b9f" stroke="#8b7b9f" stroke-width="1.6" points="413.53,-637.22 397.53,-637.22 397.53,-634.02 413.53,-634.02 413.53,-637.22"/>
+<polyline fill="none" stroke="#8b7b9f" stroke-width="1.6" points="405.53,-638.82 405.53,-630.82"/>
+<polygon fill="#8b7b9f" stroke="#8b7b9f" stroke-width="1.6" points="405.53,-518.44 412.73,-502.44 405.53,-509.9 405.53,-502.98 405.53,-502.98 405.53,-502.98 405.53,-509.9 398.33,-502.44 405.53,-518.44"/>
+<ellipse fill="none" stroke="#8b7b9f" stroke-width="1.6" cx="405.53" cy="-527.59" rx="6.4" ry="6.4"/>
+<text xml:space="preserve" text-anchor="middle" x="491.99" y="-579.5" font-family="Apple SD Gothic Neo, Noto Sans CJK KR, sans-serif" font-size="17.00" fill="#4f435c">문서 조각</text>
+<text xml:space="preserve" text-anchor="middle" x="491.99" y="-559.1" font-family="Apple SD Gothic Neo, Noto Sans CJK KR, sans-serif" font-size="17.00" fill="#4f435c">(document_version_id)</text>
+</g>
+<!-- knowledge.chunks&#45;&gt;knowledge.chunks -->
+<g id="fk_knowledge_chunks_parent_chunk_id" class="edge">
+<title>knowledge.chunks:e&#45;&gt;knowledge.chunks:e</title>
+<path fill="none" stroke="#8b7b9f" stroke-width="1.6" d="M816.71,-272.37C835.75,-331.08 865.06,-323.95 865.06,-251 865.06,-181.68 838.6,-171.79 819.62,-221.35"/>
+<polygon fill="#8b7b9f" stroke="#8b7b9f" stroke-width="1.6" points="803.63,-254.63 819.08,-250.46 819.91,-253.55 804.47,-257.72 803.63,-254.63"/>
+<polyline fill="none" stroke="#8b7b9f" stroke-width="1.6" points="810.94,-251 813.02,-258.72"/>
+<ellipse fill="none" stroke="#8b7b9f" stroke-width="1.6" cx="814.9" cy="-265.67" rx="6.4" ry="6.4"/>
+<polygon fill="#8b7b9f" stroke="#8b7b9f" stroke-width="1.6" points="815.59,-235.13 804.18,-248.46 813.19,-243.32 811.24,-249.97 811.24,-249.97 811.24,-249.97 813.19,-243.32 818,-252.51 815.59,-235.13"/>
+<ellipse fill="none" stroke="#8b7b9f" stroke-width="1.6" cx="818.16" cy="-226.35" rx="6.4" ry="6.4"/>
+<text xml:space="preserve" text-anchor="middle" x="933.58" y="-256.1" font-family="Apple SD Gothic Neo, Noto Sans CJK KR, sans-serif" font-size="17.00" fill="#4f435c">부모 조각</text>
+<text xml:space="preserve" text-anchor="middle" x="933.58" y="-235.7" font-family="Apple SD Gothic Neo, Noto Sans CJK KR, sans-serif" font-size="17.00" fill="#4f435c">(parent_chunk_id)</text>
+</g>
+<!-- knowledge.document_versions -->
+<g id="node1" class="node">
+<title>knowledge.document_versions</title>
+<polygon fill="none" stroke="#a18bcc" points="37.03,-646.8 37.03,-1324.8 774.03,-1324.8 774.03,-646.8 37.03,-646.8"/>
+<polygon fill="#ece7fa" stroke="none" points="38.03,-1281.4 38.03,-1323.8 773.03,-1323.8 773.03,-1281.4 38.03,-1281.4"/>
+<polygon fill="none" stroke="#a18bcc" points="38.03,-1281.4 38.03,-1323.8 773.03,-1323.8 773.03,-1281.4 38.03,-1281.4"/>
+<text xml:space="preserve" text-anchor="start" x="241.71" y="-1297" font-family="Apple SD Gothic Neo, Noto Sans CJK KR, sans-serif" font-weight="bold" font-size="22.00">knowledge.document_versions</text>
+<polygon fill="#f0f2f7" stroke="none" points="38.03,-1246.2 38.03,-1281.4 158.03,-1281.4 158.03,-1246.2 38.03,-1246.2"/>
+<polygon fill="none" stroke="#a18bcc" points="38.03,-1246.2 38.03,-1281.4 158.03,-1281.4 158.03,-1246.2 38.03,-1246.2"/>
+<text xml:space="preserve" text-anchor="start" x="46.03" y="-1260" font-family="Apple SD Gothic Neo, Noto Sans CJK KR, sans-serif" font-weight="bold" font-size="16.00">타입</text>
+<polygon fill="#f0f2f7" stroke="none" points="158.03,-1246.2 158.03,-1281.4 383.03,-1281.4 383.03,-1246.2 158.03,-1246.2"/>
+<polygon fill="none" stroke="#a18bcc" points="158.03,-1246.2 158.03,-1281.4 383.03,-1281.4 383.03,-1246.2 158.03,-1246.2"/>
+<text xml:space="preserve" text-anchor="start" x="166.03" y="-1260" font-family="Apple SD Gothic Neo, Noto Sans CJK KR, sans-serif" font-weight="bold" font-size="16.00">컬럼</text>
+<polygon fill="#f0f2f7" stroke="none" points="383.03,-1246.2 383.03,-1281.4 458.03,-1281.4 458.03,-1246.2 383.03,-1246.2"/>
+<polygon fill="none" stroke="#a18bcc" points="383.03,-1246.2 383.03,-1281.4 458.03,-1281.4 458.03,-1246.2 383.03,-1246.2"/>
+<text xml:space="preserve" text-anchor="start" x="391.03" y="-1260" font-family="Apple SD Gothic Neo, Noto Sans CJK KR, sans-serif" font-weight="bold" font-size="16.00">키</text>
+<polygon fill="#f0f2f7" stroke="none" points="458.03,-1246.2 458.03,-1281.4 518.03,-1281.4 518.03,-1246.2 458.03,-1246.2"/>
+<polygon fill="none" stroke="#a18bcc" points="458.03,-1246.2 458.03,-1281.4 518.03,-1281.4 518.03,-1246.2 458.03,-1246.2"/>
+<text xml:space="preserve" text-anchor="start" x="466.03" y="-1260" font-family="Apple SD Gothic Neo, Noto Sans CJK KR, sans-serif" font-weight="bold" font-size="16.00">NULL</text>
+<polygon fill="#f0f2f7" stroke="none" points="518.03,-1246.2 518.03,-1281.4 773.03,-1281.4 773.03,-1246.2 518.03,-1246.2"/>
+<polygon fill="none" stroke="#a18bcc" points="518.03,-1246.2 518.03,-1281.4 773.03,-1281.4 773.03,-1246.2 518.03,-1246.2"/>
+<text xml:space="preserve" text-anchor="start" x="526.03" y="-1260" font-family="Apple SD Gothic Neo, Noto Sans CJK KR, sans-serif" font-weight="bold" font-size="16.00">참고</text>
+<polygon fill="#ffffff" stroke="none" points="38.03,-1211 38.03,-1246.2 158.03,-1246.2 158.03,-1211 38.03,-1211"/>
+<polygon fill="none" stroke="#a18bcc" points="38.03,-1211 38.03,-1246.2 158.03,-1246.2 158.03,-1211 38.03,-1211"/>
+<text xml:space="preserve" text-anchor="start" x="46.03" y="-1222.2" font-family="Apple SD Gothic Neo, Noto Sans CJK KR, sans-serif" font-size="16.00">uuid</text>
+<polygon fill="#ffffff" stroke="none" points="158.03,-1211 158.03,-1246.2 383.03,-1246.2 383.03,-1211 158.03,-1211"/>
+<polygon fill="none" stroke="#a18bcc" points="158.03,-1211 158.03,-1246.2 383.03,-1246.2 383.03,-1211 158.03,-1211"/>
+<text xml:space="preserve" text-anchor="start" x="166.03" y="-1222.2" font-family="Apple SD Gothic Neo, Noto Sans CJK KR, sans-serif" font-size="16.00">document_version_id</text>
+<polygon fill="#ffffff" stroke="none" points="383.03,-1211 383.03,-1246.2 458.03,-1246.2 458.03,-1211 383.03,-1211"/>
+<polygon fill="none" stroke="#a18bcc" points="383.03,-1211 383.03,-1246.2 458.03,-1246.2 458.03,-1211 383.03,-1211"/>
+<text xml:space="preserve" text-anchor="start" x="391.03" y="-1222.2" font-family="Apple SD Gothic Neo, Noto Sans CJK KR, sans-serif" font-size="16.00">PK</text>
+<polygon fill="#ffffff" stroke="none" points="458.03,-1211 458.03,-1246.2 518.03,-1246.2 518.03,-1211 458.03,-1211"/>
+<polygon fill="none" stroke="#a18bcc" points="458.03,-1211 458.03,-1246.2 518.03,-1246.2 518.03,-1211 458.03,-1211"/>
+<text xml:space="preserve" text-anchor="start" x="466.03" y="-1222.2" font-family="Apple SD Gothic Neo, Noto Sans CJK KR, sans-serif" font-size="16.00">NN</text>
+<polygon fill="#ffffff" stroke="none" points="518.03,-1211 518.03,-1246.2 773.03,-1246.2 773.03,-1211 518.03,-1211"/>
+<polygon fill="none" stroke="#a18bcc" points="518.03,-1211 518.03,-1246.2 773.03,-1246.2 773.03,-1211 518.03,-1211"/>
+<text xml:space="preserve" text-anchor="start" x="526.03" y="-1222.2" font-family="Apple SD Gothic Neo, Noto Sans CJK KR, sans-serif" font-size="16.00"> </text>
+<polygon fill="#f8f8fc" stroke="none" points="38.03,-1175.8 38.03,-1211 158.03,-1211 158.03,-1175.8 38.03,-1175.8"/>
+<polygon fill="none" stroke="#a18bcc" points="38.03,-1175.8 38.03,-1211 158.03,-1211 158.03,-1175.8 38.03,-1175.8"/>
+<text xml:space="preserve" text-anchor="start" x="46.03" y="-1187" font-family="Apple SD Gothic Neo, Noto Sans CJK KR, sans-serif" font-size="16.00">text</text>
+<polygon fill="#f8f8fc" stroke="none" points="158.03,-1175.8 158.03,-1211 383.03,-1211 383.03,-1175.8 158.03,-1175.8"/>
+<polygon fill="none" stroke="#a18bcc" points="158.03,-1175.8 158.03,-1211 383.03,-1211 383.03,-1175.8 158.03,-1175.8"/>
+<text xml:space="preserve" text-anchor="start" x="166.03" y="-1187" font-family="Apple SD Gothic Neo, Noto Sans CJK KR, sans-serif" font-size="16.00">document_key</text>
+<polygon fill="#f8f8fc" stroke="none" points="383.03,-1175.8 383.03,-1211 458.03,-1211 458.03,-1175.8 383.03,-1175.8"/>
+<polygon fill="none" stroke="#a18bcc" points="383.03,-1175.8 383.03,-1211 458.03,-1211 458.03,-1175.8 383.03,-1175.8"/>
+<text xml:space="preserve" text-anchor="start" x="391.03" y="-1187" font-family="Apple SD Gothic Neo, Noto Sans CJK KR, sans-serif" font-size="16.00">UK</text>
+<polygon fill="#f8f8fc" stroke="none" points="458.03,-1175.8 458.03,-1211 518.03,-1211 518.03,-1175.8 458.03,-1175.8"/>
+<polygon fill="none" stroke="#a18bcc" points="458.03,-1175.8 458.03,-1211 518.03,-1211 518.03,-1175.8 458.03,-1175.8"/>
+<text xml:space="preserve" text-anchor="start" x="466.03" y="-1187" font-family="Apple SD Gothic Neo, Noto Sans CJK KR, sans-serif" font-size="16.00">NN</text>
+<polygon fill="#f8f8fc" stroke="none" points="518.03,-1175.8 518.03,-1211 773.03,-1211 773.03,-1175.8 518.03,-1175.8"/>
+<polygon fill="none" stroke="#a18bcc" points="518.03,-1175.8 518.03,-1211 773.03,-1211 773.03,-1175.8 518.03,-1175.8"/>
+<text xml:space="preserve" text-anchor="start" x="526.03" y="-1187" font-family="Apple SD Gothic Neo, Noto Sans CJK KR, sans-serif" font-size="16.00">복합 키 구성</text>
+<polygon fill="#ffffff" stroke="none" points="38.03,-1140.6 38.03,-1175.8 158.03,-1175.8 158.03,-1140.6 38.03,-1140.6"/>
+<polygon fill="none" stroke="#a18bcc" points="38.03,-1140.6 38.03,-1175.8 158.03,-1175.8 158.03,-1140.6 38.03,-1140.6"/>
+<text xml:space="preserve" text-anchor="start" x="46.03" y="-1151.8" font-family="Apple SD Gothic Neo, Noto Sans CJK KR, sans-serif" font-size="16.00">text</text>
+<polygon fill="#ffffff" stroke="none" points="158.03,-1140.6 158.03,-1175.8 383.03,-1175.8 383.03,-1140.6 158.03,-1140.6"/>
+<polygon fill="none" stroke="#a18bcc" points="158.03,-1140.6 158.03,-1175.8 383.03,-1175.8 383.03,-1140.6 158.03,-1140.6"/>
+<text xml:space="preserve" text-anchor="start" x="166.03" y="-1151.8" font-family="Apple SD Gothic Neo, Noto Sans CJK KR, sans-serif" font-size="16.00">version_label</text>
+<polygon fill="#ffffff" stroke="none" points="383.03,-1140.6 383.03,-1175.8 458.03,-1175.8 458.03,-1140.6 383.03,-1140.6"/>
+<polygon fill="none" stroke="#a18bcc" points="383.03,-1140.6 383.03,-1175.8 458.03,-1175.8 458.03,-1140.6 383.03,-1140.6"/>
+<text xml:space="preserve" text-anchor="start" x="391.03" y="-1151.8" font-family="Apple SD Gothic Neo, Noto Sans CJK KR, sans-serif" font-size="16.00">UK</text>
+<polygon fill="#ffffff" stroke="none" points="458.03,-1140.6 458.03,-1175.8 518.03,-1175.8 518.03,-1140.6 458.03,-1140.6"/>
+<polygon fill="none" stroke="#a18bcc" points="458.03,-1140.6 458.03,-1175.8 518.03,-1175.8 518.03,-1140.6 458.03,-1140.6"/>
+<text xml:space="preserve" text-anchor="start" x="466.03" y="-1151.8" font-family="Apple SD Gothic Neo, Noto Sans CJK KR, sans-serif" font-size="16.00">NN</text>
+<polygon fill="#ffffff" stroke="none" points="518.03,-1140.6 518.03,-1175.8 773.03,-1175.8 773.03,-1140.6 518.03,-1140.6"/>
+<polygon fill="none" stroke="#a18bcc" points="518.03,-1140.6 518.03,-1175.8 773.03,-1175.8 773.03,-1140.6 518.03,-1140.6"/>
+<text xml:space="preserve" text-anchor="start" x="526.03" y="-1151.8" font-family="Apple SD Gothic Neo, Noto Sans CJK KR, sans-serif" font-size="16.00">복합 키 구성</text>
+<polygon fill="#f8f8fc" stroke="none" points="38.03,-1105.4 38.03,-1140.6 158.03,-1140.6 158.03,-1105.4 38.03,-1105.4"/>
+<polygon fill="none" stroke="#a18bcc" points="38.03,-1105.4 38.03,-1140.6 158.03,-1140.6 158.03,-1105.4 38.03,-1105.4"/>
+<text xml:space="preserve" text-anchor="start" x="46.03" y="-1116.6" font-family="Apple SD Gothic Neo, Noto Sans CJK KR, sans-serif" font-size="16.00">text</text>
+<polygon fill="#f8f8fc" stroke="none" points="158.03,-1105.4 158.03,-1140.6 383.03,-1140.6 383.03,-1105.4 158.03,-1105.4"/>
+<polygon fill="none" stroke="#a18bcc" points="158.03,-1105.4 158.03,-1140.6 383.03,-1140.6 383.03,-1105.4 158.03,-1105.4"/>
+<text xml:space="preserve" text-anchor="start" x="166.03" y="-1116.6" font-family="Apple SD Gothic Neo, Noto Sans CJK KR, sans-serif" font-size="16.00">title</text>
+<polygon fill="#f8f8fc" stroke="none" points="383.03,-1105.4 383.03,-1140.6 458.03,-1140.6 458.03,-1105.4 383.03,-1105.4"/>
+<polygon fill="none" stroke="#a18bcc" points="383.03,-1105.4 383.03,-1140.6 458.03,-1140.6 458.03,-1105.4 383.03,-1105.4"/>
+<text xml:space="preserve" text-anchor="start" x="391.03" y="-1116.6" font-family="Apple SD Gothic Neo, Noto Sans CJK KR, sans-serif" font-size="16.00"> </text>
+<polygon fill="#f8f8fc" stroke="none" points="458.03,-1105.4 458.03,-1140.6 518.03,-1140.6 518.03,-1105.4 458.03,-1105.4"/>
+<polygon fill="none" stroke="#a18bcc" points="458.03,-1105.4 458.03,-1140.6 518.03,-1140.6 518.03,-1105.4 458.03,-1105.4"/>
+<text xml:space="preserve" text-anchor="start" x="466.03" y="-1116.6" font-family="Apple SD Gothic Neo, Noto Sans CJK KR, sans-serif" font-size="16.00">NN</text>
+<polygon fill="#f8f8fc" stroke="none" points="518.03,-1105.4 518.03,-1140.6 773.03,-1140.6 773.03,-1105.4 518.03,-1105.4"/>
+<polygon fill="none" stroke="#a18bcc" points="518.03,-1105.4 518.03,-1140.6 773.03,-1140.6 773.03,-1105.4 518.03,-1105.4"/>
+<text xml:space="preserve" text-anchor="start" x="526.03" y="-1116.6" font-family="Apple SD Gothic Neo, Noto Sans CJK KR, sans-serif" font-size="16.00"> </text>
+<polygon fill="#ffffff" stroke="none" points="38.03,-1070.2 38.03,-1105.4 158.03,-1105.4 158.03,-1070.2 38.03,-1070.2"/>
+<polygon fill="none" stroke="#a18bcc" points="38.03,-1070.2 38.03,-1105.4 158.03,-1105.4 158.03,-1070.2 38.03,-1070.2"/>
+<text xml:space="preserve" text-anchor="start" x="46.03" y="-1081.4" font-family="Apple SD Gothic Neo, Noto Sans CJK KR, sans-serif" font-size="16.00">text</text>
+<polygon fill="#ffffff" stroke="none" points="158.03,-1070.2 158.03,-1105.4 383.03,-1105.4 383.03,-1070.2 158.03,-1070.2"/>
+<polygon fill="none" stroke="#a18bcc" points="158.03,-1070.2 158.03,-1105.4 383.03,-1105.4 383.03,-1070.2 158.03,-1070.2"/>
+<text xml:space="preserve" text-anchor="start" x="166.03" y="-1081.4" font-family="Apple SD Gothic Neo, Noto Sans CJK KR, sans-serif" font-size="16.00">issuer</text>
+<polygon fill="#ffffff" stroke="none" points="383.03,-1070.2 383.03,-1105.4 458.03,-1105.4 458.03,-1070.2 383.03,-1070.2"/>
+<polygon fill="none" stroke="#a18bcc" points="383.03,-1070.2 383.03,-1105.4 458.03,-1105.4 458.03,-1070.2 383.03,-1070.2"/>
+<text xml:space="preserve" text-anchor="start" x="391.03" y="-1081.4" font-family="Apple SD Gothic Neo, Noto Sans CJK KR, sans-serif" font-size="16.00"> </text>
+<polygon fill="#ffffff" stroke="none" points="458.03,-1070.2 458.03,-1105.4 518.03,-1105.4 518.03,-1070.2 458.03,-1070.2"/>
+<polygon fill="none" stroke="#a18bcc" points="458.03,-1070.2 458.03,-1105.4 518.03,-1105.4 518.03,-1070.2 458.03,-1070.2"/>
+<text xml:space="preserve" text-anchor="start" x="466.03" y="-1081.4" font-family="Apple SD Gothic Neo, Noto Sans CJK KR, sans-serif" font-size="16.00">NN</text>
+<polygon fill="#ffffff" stroke="none" points="518.03,-1070.2 518.03,-1105.4 773.03,-1105.4 773.03,-1070.2 518.03,-1070.2"/>
+<polygon fill="none" stroke="#a18bcc" points="518.03,-1070.2 518.03,-1105.4 773.03,-1105.4 773.03,-1070.2 518.03,-1070.2"/>
+<text xml:space="preserve" text-anchor="start" x="526.03" y="-1081.4" font-family="Apple SD Gothic Neo, Noto Sans CJK KR, sans-serif" font-size="16.00"> </text>
+<polygon fill="#f8f8fc" stroke="none" points="38.03,-1035 38.03,-1070.2 158.03,-1070.2 158.03,-1035 38.03,-1035"/>
+<polygon fill="none" stroke="#a18bcc" points="38.03,-1035 38.03,-1070.2 158.03,-1070.2 158.03,-1035 38.03,-1035"/>
+<text xml:space="preserve" text-anchor="start" x="46.03" y="-1046.2" font-family="Apple SD Gothic Neo, Noto Sans CJK KR, sans-serif" font-size="16.00">text</text>
+<polygon fill="#f8f8fc" stroke="none" points="158.03,-1035 158.03,-1070.2 383.03,-1070.2 383.03,-1035 158.03,-1035"/>
+<polygon fill="none" stroke="#a18bcc" points="158.03,-1035 158.03,-1070.2 383.03,-1070.2 383.03,-1035 158.03,-1035"/>
+<text xml:space="preserve" text-anchor="start" x="166.03" y="-1046.2" font-family="Apple SD Gothic Neo, Noto Sans CJK KR, sans-serif" font-size="16.00">collection_key</text>
+<polygon fill="#f8f8fc" stroke="none" points="383.03,-1035 383.03,-1070.2 458.03,-1070.2 458.03,-1035 383.03,-1035"/>
+<polygon fill="none" stroke="#a18bcc" points="383.03,-1035 383.03,-1070.2 458.03,-1070.2 458.03,-1035 383.03,-1035"/>
+<text xml:space="preserve" text-anchor="start" x="391.03" y="-1046.2" font-family="Apple SD Gothic Neo, Noto Sans CJK KR, sans-serif" font-size="16.00"> </text>
+<polygon fill="#f8f8fc" stroke="none" points="458.03,-1035 458.03,-1070.2 518.03,-1070.2 518.03,-1035 458.03,-1035"/>
+<polygon fill="none" stroke="#a18bcc" points="458.03,-1035 458.03,-1070.2 518.03,-1070.2 518.03,-1035 458.03,-1035"/>
+<text xml:space="preserve" text-anchor="start" x="466.03" y="-1046.2" font-family="Apple SD Gothic Neo, Noto Sans CJK KR, sans-serif" font-size="16.00">NN</text>
+<polygon fill="#f8f8fc" stroke="none" points="518.03,-1035 518.03,-1070.2 773.03,-1070.2 773.03,-1035 518.03,-1035"/>
+<polygon fill="none" stroke="#a18bcc" points="518.03,-1035 518.03,-1070.2 773.03,-1070.2 773.03,-1035 518.03,-1035"/>
+<text xml:space="preserve" text-anchor="start" x="526.03" y="-1046.2" font-family="Apple SD Gothic Neo, Noto Sans CJK KR, sans-serif" font-size="16.00">rules / cases</text>
+<polygon fill="#ffffff" stroke="none" points="38.03,-999.8 38.03,-1035 158.03,-1035 158.03,-999.8 38.03,-999.8"/>
+<polygon fill="none" stroke="#a18bcc" points="38.03,-999.8 38.03,-1035 158.03,-1035 158.03,-999.8 38.03,-999.8"/>
+<text xml:space="preserve" text-anchor="start" x="46.03" y="-1011" font-family="Apple SD Gothic Neo, Noto Sans CJK KR, sans-serif" font-size="16.00">text</text>
+<polygon fill="#ffffff" stroke="none" points="158.03,-999.8 158.03,-1035 383.03,-1035 383.03,-999.8 158.03,-999.8"/>
+<polygon fill="none" stroke="#a18bcc" points="158.03,-999.8 158.03,-1035 383.03,-1035 383.03,-999.8 158.03,-999.8"/>
+<text xml:space="preserve" text-anchor="start" x="166.03" y="-1011" font-family="Apple SD Gothic Neo, Noto Sans CJK KR, sans-serif" font-size="16.00">source_type</text>
+<polygon fill="#ffffff" stroke="none" points="383.03,-999.8 383.03,-1035 458.03,-1035 458.03,-999.8 383.03,-999.8"/>
+<polygon fill="none" stroke="#a18bcc" points="383.03,-999.8 383.03,-1035 458.03,-1035 458.03,-999.8 383.03,-999.8"/>
+<text xml:space="preserve" text-anchor="start" x="391.03" y="-1011" font-family="Apple SD Gothic Neo, Noto Sans CJK KR, sans-serif" font-size="16.00"> </text>
+<polygon fill="#ffffff" stroke="none" points="458.03,-999.8 458.03,-1035 518.03,-1035 518.03,-999.8 458.03,-999.8"/>
+<polygon fill="none" stroke="#a18bcc" points="458.03,-999.8 458.03,-1035 518.03,-1035 518.03,-999.8 458.03,-999.8"/>
+<text xml:space="preserve" text-anchor="start" x="466.03" y="-1011" font-family="Apple SD Gothic Neo, Noto Sans CJK KR, sans-serif" font-size="16.00">NN</text>
+<polygon fill="#ffffff" stroke="none" points="518.03,-999.8 518.03,-1035 773.03,-1035 773.03,-999.8 518.03,-999.8"/>
+<polygon fill="none" stroke="#a18bcc" points="518.03,-999.8 518.03,-1035 773.03,-1035 773.03,-999.8 518.03,-999.8"/>
+<text xml:space="preserve" text-anchor="start" x="526.03" y="-1011" font-family="Apple SD Gothic Neo, Noto Sans CJK KR, sans-serif" font-size="16.00"> </text>
+<polygon fill="#f8f8fc" stroke="none" points="38.03,-964.6 38.03,-999.8 158.03,-999.8 158.03,-964.6 38.03,-964.6"/>
+<polygon fill="none" stroke="#a18bcc" points="38.03,-964.6 38.03,-999.8 158.03,-999.8 158.03,-964.6 38.03,-964.6"/>
+<text xml:space="preserve" text-anchor="start" x="46.03" y="-975.8" font-family="Apple SD Gothic Neo, Noto Sans CJK KR, sans-serif" font-size="16.00">char(2)</text>
+<polygon fill="#f8f8fc" stroke="none" points="158.03,-964.6 158.03,-999.8 383.03,-999.8 383.03,-964.6 158.03,-964.6"/>
+<polygon fill="none" stroke="#a18bcc" points="158.03,-964.6 158.03,-999.8 383.03,-999.8 383.03,-964.6 158.03,-964.6"/>
+<text xml:space="preserve" text-anchor="start" x="166.03" y="-975.8" font-family="Apple SD Gothic Neo, Noto Sans CJK KR, sans-serif" font-size="16.00">jurisdiction</text>
+<polygon fill="#f8f8fc" stroke="none" points="383.03,-964.6 383.03,-999.8 458.03,-999.8 458.03,-964.6 383.03,-964.6"/>
+<polygon fill="none" stroke="#a18bcc" points="383.03,-964.6 383.03,-999.8 458.03,-999.8 458.03,-964.6 383.03,-964.6"/>
+<text xml:space="preserve" text-anchor="start" x="391.03" y="-975.8" font-family="Apple SD Gothic Neo, Noto Sans CJK KR, sans-serif" font-size="16.00"> </text>
+<polygon fill="#f8f8fc" stroke="none" points="458.03,-964.6 458.03,-999.8 518.03,-999.8 518.03,-964.6 458.03,-964.6"/>
+<polygon fill="none" stroke="#a18bcc" points="458.03,-964.6 458.03,-999.8 518.03,-999.8 518.03,-964.6 458.03,-964.6"/>
+<text xml:space="preserve" text-anchor="start" x="466.03" y="-975.8" font-family="Apple SD Gothic Neo, Noto Sans CJK KR, sans-serif" font-size="16.00">NN</text>
+<polygon fill="#f8f8fc" stroke="none" points="518.03,-964.6 518.03,-999.8 773.03,-999.8 773.03,-964.6 518.03,-964.6"/>
+<polygon fill="none" stroke="#a18bcc" points="518.03,-964.6 518.03,-999.8 773.03,-999.8 773.03,-964.6 518.03,-964.6"/>
+<text xml:space="preserve" text-anchor="start" x="526.03" y="-975.8" font-family="Apple SD Gothic Neo, Noto Sans CJK KR, sans-serif" font-size="16.00"> </text>
+<polygon fill="#ffffff" stroke="none" points="38.03,-929.4 38.03,-964.6 158.03,-964.6 158.03,-929.4 38.03,-929.4"/>
+<polygon fill="none" stroke="#a18bcc" points="38.03,-929.4 38.03,-964.6 158.03,-964.6 158.03,-929.4 38.03,-929.4"/>
+<text xml:space="preserve" text-anchor="start" x="46.03" y="-940.6" font-family="Apple SD Gothic Neo, Noto Sans CJK KR, sans-serif" font-size="16.00">text</text>
+<polygon fill="#ffffff" stroke="none" points="158.03,-929.4 158.03,-964.6 383.03,-964.6 383.03,-929.4 158.03,-929.4"/>
+<polygon fill="none" stroke="#a18bcc" points="158.03,-929.4 158.03,-964.6 383.03,-964.6 383.03,-929.4 158.03,-929.4"/>
+<text xml:space="preserve" text-anchor="start" x="166.03" y="-940.6" font-family="Apple SD Gothic Neo, Noto Sans CJK KR, sans-serif" font-size="16.00">source_url</text>
+<polygon fill="#ffffff" stroke="none" points="383.03,-929.4 383.03,-964.6 458.03,-964.6 458.03,-929.4 383.03,-929.4"/>
+<polygon fill="none" stroke="#a18bcc" points="383.03,-929.4 383.03,-964.6 458.03,-964.6 458.03,-929.4 383.03,-929.4"/>
+<text xml:space="preserve" text-anchor="start" x="391.03" y="-940.6" font-family="Apple SD Gothic Neo, Noto Sans CJK KR, sans-serif" font-size="16.00"> </text>
+<polygon fill="#ffffff" stroke="none" points="458.03,-929.4 458.03,-964.6 518.03,-964.6 518.03,-929.4 458.03,-929.4"/>
+<polygon fill="none" stroke="#a18bcc" points="458.03,-929.4 458.03,-964.6 518.03,-964.6 518.03,-929.4 458.03,-929.4"/>
+<text xml:space="preserve" text-anchor="start" x="466.03" y="-940.6" font-family="Apple SD Gothic Neo, Noto Sans CJK KR, sans-serif" font-size="16.00">NN</text>
+<polygon fill="#ffffff" stroke="none" points="518.03,-929.4 518.03,-964.6 773.03,-964.6 773.03,-929.4 518.03,-929.4"/>
+<polygon fill="none" stroke="#a18bcc" points="518.03,-929.4 518.03,-964.6 773.03,-964.6 773.03,-929.4 518.03,-929.4"/>
+<text xml:space="preserve" text-anchor="start" x="526.03" y="-940.6" font-family="Apple SD Gothic Neo, Noto Sans CJK KR, sans-serif" font-size="16.00"> </text>
+<polygon fill="#f8f8fc" stroke="none" points="38.03,-894.2 38.03,-929.4 158.03,-929.4 158.03,-894.2 38.03,-894.2"/>
+<polygon fill="none" stroke="#a18bcc" points="38.03,-894.2 38.03,-929.4 158.03,-929.4 158.03,-894.2 38.03,-894.2"/>
+<text xml:space="preserve" text-anchor="start" x="46.03" y="-905.4" font-family="Apple SD Gothic Neo, Noto Sans CJK KR, sans-serif" font-size="16.00">boolean</text>
+<polygon fill="#f8f8fc" stroke="none" points="158.03,-894.2 158.03,-929.4 383.03,-929.4 383.03,-894.2 158.03,-894.2"/>
+<polygon fill="none" stroke="#a18bcc" points="158.03,-894.2 158.03,-929.4 383.03,-929.4 383.03,-894.2 158.03,-894.2"/>
+<text xml:space="preserve" text-anchor="start" x="166.03" y="-905.4" font-family="Apple SD Gothic Neo, Noto Sans CJK KR, sans-serif" font-size="16.00">source_verified</text>
+<polygon fill="#f8f8fc" stroke="none" points="383.03,-894.2 383.03,-929.4 458.03,-929.4 458.03,-894.2 383.03,-894.2"/>
+<polygon fill="none" stroke="#a18bcc" points="383.03,-894.2 383.03,-929.4 458.03,-929.4 458.03,-894.2 383.03,-894.2"/>
+<text xml:space="preserve" text-anchor="start" x="391.03" y="-905.4" font-family="Apple SD Gothic Neo, Noto Sans CJK KR, sans-serif" font-size="16.00"> </text>
+<polygon fill="#f8f8fc" stroke="none" points="458.03,-894.2 458.03,-929.4 518.03,-929.4 518.03,-894.2 458.03,-894.2"/>
+<polygon fill="none" stroke="#a18bcc" points="458.03,-894.2 458.03,-929.4 518.03,-929.4 518.03,-894.2 458.03,-894.2"/>
+<text xml:space="preserve" text-anchor="start" x="466.03" y="-905.4" font-family="Apple SD Gothic Neo, Noto Sans CJK KR, sans-serif" font-size="16.00">NN</text>
+<polygon fill="#f8f8fc" stroke="none" points="518.03,-894.2 518.03,-929.4 773.03,-929.4 773.03,-894.2 518.03,-894.2"/>
+<polygon fill="none" stroke="#a18bcc" points="518.03,-894.2 518.03,-929.4 773.03,-929.4 773.03,-894.2 518.03,-894.2"/>
+<text xml:space="preserve" text-anchor="start" x="526.03" y="-905.4" font-family="Apple SD Gothic Neo, Noto Sans CJK KR, sans-serif" font-size="16.00"> </text>
+<polygon fill="#ffffff" stroke="none" points="38.03,-859 38.03,-894.2 158.03,-894.2 158.03,-859 38.03,-859"/>
+<polygon fill="none" stroke="#a18bcc" points="38.03,-859 38.03,-894.2 158.03,-894.2 158.03,-859 38.03,-859"/>
+<text xml:space="preserve" text-anchor="start" x="46.03" y="-870.2" font-family="Apple SD Gothic Neo, Noto Sans CJK KR, sans-serif" font-size="16.00">date</text>
+<polygon fill="#ffffff" stroke="none" points="158.03,-859 158.03,-894.2 383.03,-894.2 383.03,-859 158.03,-859"/>
+<polygon fill="none" stroke="#a18bcc" points="158.03,-859 158.03,-894.2 383.03,-894.2 383.03,-859 158.03,-859"/>
+<text xml:space="preserve" text-anchor="start" x="166.03" y="-870.2" font-family="Apple SD Gothic Neo, Noto Sans CJK KR, sans-serif" font-size="16.00">published_on</text>
+<polygon fill="#ffffff" stroke="none" points="383.03,-859 383.03,-894.2 458.03,-894.2 458.03,-859 383.03,-859"/>
+<polygon fill="none" stroke="#a18bcc" points="383.03,-859 383.03,-894.2 458.03,-894.2 458.03,-859 383.03,-859"/>
+<text xml:space="preserve" text-anchor="start" x="391.03" y="-870.2" font-family="Apple SD Gothic Neo, Noto Sans CJK KR, sans-serif" font-size="16.00"> </text>
+<polygon fill="#ffffff" stroke="none" points="458.03,-859 458.03,-894.2 518.03,-894.2 518.03,-859 458.03,-859"/>
+<polygon fill="none" stroke="#a18bcc" points="458.03,-859 458.03,-894.2 518.03,-894.2 518.03,-859 458.03,-859"/>
+<text xml:space="preserve" text-anchor="start" x="466.03" y="-870.2" font-family="Apple SD Gothic Neo, Noto Sans CJK KR, sans-serif" font-size="16.00">NULL</text>
+<polygon fill="#ffffff" stroke="none" points="518.03,-859 518.03,-894.2 773.03,-894.2 773.03,-859 518.03,-859"/>
+<polygon fill="none" stroke="#a18bcc" points="518.03,-859 518.03,-894.2 773.03,-894.2 773.03,-859 518.03,-859"/>
+<text xml:space="preserve" text-anchor="start" x="526.03" y="-870.2" font-family="Apple SD Gothic Neo, Noto Sans CJK KR, sans-serif" font-size="16.00"> </text>
+<polygon fill="#f8f8fc" stroke="none" points="38.03,-823.8 38.03,-859 158.03,-859 158.03,-823.8 38.03,-823.8"/>
+<polygon fill="none" stroke="#a18bcc" points="38.03,-823.8 38.03,-859 158.03,-859 158.03,-823.8 38.03,-823.8"/>
+<text xml:space="preserve" text-anchor="start" x="46.03" y="-835" font-family="Apple SD Gothic Neo, Noto Sans CJK KR, sans-serif" font-size="16.00">date</text>
+<polygon fill="#f8f8fc" stroke="none" points="158.03,-823.8 158.03,-859 383.03,-859 383.03,-823.8 158.03,-823.8"/>
+<polygon fill="none" stroke="#a18bcc" points="158.03,-823.8 158.03,-859 383.03,-859 383.03,-823.8 158.03,-823.8"/>
+<text xml:space="preserve" text-anchor="start" x="166.03" y="-835" font-family="Apple SD Gothic Neo, Noto Sans CJK KR, sans-serif" font-size="16.00">effective_from</text>
+<polygon fill="#f8f8fc" stroke="none" points="383.03,-823.8 383.03,-859 458.03,-859 458.03,-823.8 383.03,-823.8"/>
+<polygon fill="none" stroke="#a18bcc" points="383.03,-823.8 383.03,-859 458.03,-859 458.03,-823.8 383.03,-823.8"/>
+<text xml:space="preserve" text-anchor="start" x="391.03" y="-835" font-family="Apple SD Gothic Neo, Noto Sans CJK KR, sans-serif" font-size="16.00"> </text>
+<polygon fill="#f8f8fc" stroke="none" points="458.03,-823.8 458.03,-859 518.03,-859 518.03,-823.8 458.03,-823.8"/>
+<polygon fill="none" stroke="#a18bcc" points="458.03,-823.8 458.03,-859 518.03,-859 518.03,-823.8 458.03,-823.8"/>
+<text xml:space="preserve" text-anchor="start" x="466.03" y="-835" font-family="Apple SD Gothic Neo, Noto Sans CJK KR, sans-serif" font-size="16.00">NULL</text>
+<polygon fill="#f8f8fc" stroke="none" points="518.03,-823.8 518.03,-859 773.03,-859 773.03,-823.8 518.03,-823.8"/>
+<polygon fill="none" stroke="#a18bcc" points="518.03,-823.8 518.03,-859 773.03,-859 773.03,-823.8 518.03,-823.8"/>
+<text xml:space="preserve" text-anchor="start" x="526.03" y="-835" font-family="Apple SD Gothic Neo, Noto Sans CJK KR, sans-serif" font-size="16.00"> </text>
+<polygon fill="#ffffff" stroke="none" points="38.03,-788.6 38.03,-823.8 158.03,-823.8 158.03,-788.6 38.03,-788.6"/>
+<polygon fill="none" stroke="#a18bcc" points="38.03,-788.6 38.03,-823.8 158.03,-823.8 158.03,-788.6 38.03,-788.6"/>
+<text xml:space="preserve" text-anchor="start" x="46.03" y="-799.8" font-family="Apple SD Gothic Neo, Noto Sans CJK KR, sans-serif" font-size="16.00">date</text>
+<polygon fill="#ffffff" stroke="none" points="158.03,-788.6 158.03,-823.8 383.03,-823.8 383.03,-788.6 158.03,-788.6"/>
+<polygon fill="none" stroke="#a18bcc" points="158.03,-788.6 158.03,-823.8 383.03,-823.8 383.03,-788.6 158.03,-788.6"/>
+<text xml:space="preserve" text-anchor="start" x="166.03" y="-799.8" font-family="Apple SD Gothic Neo, Noto Sans CJK KR, sans-serif" font-size="16.00">effective_until</text>
+<polygon fill="#ffffff" stroke="none" points="383.03,-788.6 383.03,-823.8 458.03,-823.8 458.03,-788.6 383.03,-788.6"/>
+<polygon fill="none" stroke="#a18bcc" points="383.03,-788.6 383.03,-823.8 458.03,-823.8 458.03,-788.6 383.03,-788.6"/>
+<text xml:space="preserve" text-anchor="start" x="391.03" y="-799.8" font-family="Apple SD Gothic Neo, Noto Sans CJK KR, sans-serif" font-size="16.00"> </text>
+<polygon fill="#ffffff" stroke="none" points="458.03,-788.6 458.03,-823.8 518.03,-823.8 518.03,-788.6 458.03,-788.6"/>
+<polygon fill="none" stroke="#a18bcc" points="458.03,-788.6 458.03,-823.8 518.03,-823.8 518.03,-788.6 458.03,-788.6"/>
+<text xml:space="preserve" text-anchor="start" x="466.03" y="-799.8" font-family="Apple SD Gothic Neo, Noto Sans CJK KR, sans-serif" font-size="16.00">NULL</text>
+<polygon fill="#ffffff" stroke="none" points="518.03,-788.6 518.03,-823.8 773.03,-823.8 773.03,-788.6 518.03,-788.6"/>
+<polygon fill="none" stroke="#a18bcc" points="518.03,-788.6 518.03,-823.8 773.03,-823.8 773.03,-788.6 518.03,-788.6"/>
+<text xml:space="preserve" text-anchor="start" x="526.03" y="-799.8" font-family="Apple SD Gothic Neo, Noto Sans CJK KR, sans-serif" font-size="16.00"> </text>
+<polygon fill="#f8f8fc" stroke="none" points="38.03,-753.4 38.03,-788.6 158.03,-788.6 158.03,-753.4 38.03,-753.4"/>
+<polygon fill="none" stroke="#a18bcc" points="38.03,-753.4 38.03,-788.6 158.03,-788.6 158.03,-753.4 38.03,-753.4"/>
+<text xml:space="preserve" text-anchor="start" x="46.03" y="-764.6" font-family="Apple SD Gothic Neo, Noto Sans CJK KR, sans-serif" font-size="16.00">timestamptz</text>
+<polygon fill="#f8f8fc" stroke="none" points="158.03,-753.4 158.03,-788.6 383.03,-788.6 383.03,-753.4 158.03,-753.4"/>
+<polygon fill="none" stroke="#a18bcc" points="158.03,-753.4 158.03,-788.6 383.03,-788.6 383.03,-753.4 158.03,-753.4"/>
+<text xml:space="preserve" text-anchor="start" x="166.03" y="-764.6" font-family="Apple SD Gothic Neo, Noto Sans CJK KR, sans-serif" font-size="16.00">retrieved_at</text>
+<polygon fill="#f8f8fc" stroke="none" points="383.03,-753.4 383.03,-788.6 458.03,-788.6 458.03,-753.4 383.03,-753.4"/>
+<polygon fill="none" stroke="#a18bcc" points="383.03,-753.4 383.03,-788.6 458.03,-788.6 458.03,-753.4 383.03,-753.4"/>
+<text xml:space="preserve" text-anchor="start" x="391.03" y="-764.6" font-family="Apple SD Gothic Neo, Noto Sans CJK KR, sans-serif" font-size="16.00"> </text>
+<polygon fill="#f8f8fc" stroke="none" points="458.03,-753.4 458.03,-788.6 518.03,-788.6 518.03,-753.4 458.03,-753.4"/>
+<polygon fill="none" stroke="#a18bcc" points="458.03,-753.4 458.03,-788.6 518.03,-788.6 518.03,-753.4 458.03,-753.4"/>
+<text xml:space="preserve" text-anchor="start" x="466.03" y="-764.6" font-family="Apple SD Gothic Neo, Noto Sans CJK KR, sans-serif" font-size="16.00">NN</text>
+<polygon fill="#f8f8fc" stroke="none" points="518.03,-753.4 518.03,-788.6 773.03,-788.6 773.03,-753.4 518.03,-753.4"/>
+<polygon fill="none" stroke="#a18bcc" points="518.03,-753.4 518.03,-788.6 773.03,-788.6 773.03,-753.4 518.03,-753.4"/>
+<text xml:space="preserve" text-anchor="start" x="526.03" y="-764.6" font-family="Apple SD Gothic Neo, Noto Sans CJK KR, sans-serif" font-size="16.00"> </text>
+<polygon fill="#ffffff" stroke="none" points="38.03,-718.2 38.03,-753.4 158.03,-753.4 158.03,-718.2 38.03,-718.2"/>
+<polygon fill="none" stroke="#a18bcc" points="38.03,-718.2 38.03,-753.4 158.03,-753.4 158.03,-718.2 38.03,-718.2"/>
+<text xml:space="preserve" text-anchor="start" x="46.03" y="-729.4" font-family="Apple SD Gothic Neo, Noto Sans CJK KR, sans-serif" font-size="16.00">char(64)</text>
+<polygon fill="#ffffff" stroke="none" points="158.03,-718.2 158.03,-753.4 383.03,-753.4 383.03,-718.2 158.03,-718.2"/>
+<polygon fill="none" stroke="#a18bcc" points="158.03,-718.2 158.03,-753.4 383.03,-753.4 383.03,-718.2 158.03,-718.2"/>
+<text xml:space="preserve" text-anchor="start" x="166.03" y="-729.4" font-family="Apple SD Gothic Neo, Noto Sans CJK KR, sans-serif" font-size="16.00">content_sha256</text>
+<polygon fill="#ffffff" stroke="none" points="383.03,-718.2 383.03,-753.4 458.03,-753.4 458.03,-718.2 383.03,-718.2"/>
+<polygon fill="none" stroke="#a18bcc" points="383.03,-718.2 383.03,-753.4 458.03,-753.4 458.03,-718.2 383.03,-718.2"/>
+<text xml:space="preserve" text-anchor="start" x="391.03" y="-729.4" font-family="Apple SD Gothic Neo, Noto Sans CJK KR, sans-serif" font-size="16.00">UK</text>
+<polygon fill="#ffffff" stroke="none" points="458.03,-718.2 458.03,-753.4 518.03,-753.4 518.03,-718.2 458.03,-718.2"/>
+<polygon fill="none" stroke="#a18bcc" points="458.03,-718.2 458.03,-753.4 518.03,-753.4 518.03,-718.2 458.03,-718.2"/>
+<text xml:space="preserve" text-anchor="start" x="466.03" y="-729.4" font-family="Apple SD Gothic Neo, Noto Sans CJK KR, sans-serif" font-size="16.00">NN</text>
+<polygon fill="#ffffff" stroke="none" points="518.03,-718.2 518.03,-753.4 773.03,-753.4 773.03,-718.2 518.03,-718.2"/>
+<polygon fill="none" stroke="#a18bcc" points="518.03,-718.2 518.03,-753.4 773.03,-753.4 773.03,-718.2 518.03,-718.2"/>
+<text xml:space="preserve" text-anchor="start" x="526.03" y="-729.4" font-family="Apple SD Gothic Neo, Noto Sans CJK KR, sans-serif" font-size="16.00">복합 키 구성</text>
+<polygon fill="#f8f8fc" stroke="none" points="38.03,-683 38.03,-718.2 158.03,-718.2 158.03,-683 38.03,-683"/>
+<polygon fill="none" stroke="#a18bcc" points="38.03,-683 38.03,-718.2 158.03,-718.2 158.03,-683 38.03,-683"/>
+<text xml:space="preserve" text-anchor="start" x="46.03" y="-694.2" font-family="Apple SD Gothic Neo, Noto Sans CJK KR, sans-serif" font-size="16.00">text</text>
+<polygon fill="#f8f8fc" stroke="none" points="158.03,-683 158.03,-718.2 383.03,-718.2 383.03,-683 158.03,-683"/>
+<polygon fill="none" stroke="#a18bcc" points="158.03,-683 158.03,-718.2 383.03,-718.2 383.03,-683 158.03,-683"/>
+<text xml:space="preserve" text-anchor="start" x="166.03" y="-694.2" font-family="Apple SD Gothic Neo, Noto Sans CJK KR, sans-serif" font-size="16.00">storage_key</text>
+<polygon fill="#f8f8fc" stroke="none" points="383.03,-683 383.03,-718.2 458.03,-718.2 458.03,-683 383.03,-683"/>
+<polygon fill="none" stroke="#a18bcc" points="383.03,-683 383.03,-718.2 458.03,-718.2 458.03,-683 383.03,-683"/>
+<text xml:space="preserve" text-anchor="start" x="391.03" y="-694.2" font-family="Apple SD Gothic Neo, Noto Sans CJK KR, sans-serif" font-size="16.00"> </text>
+<polygon fill="#f8f8fc" stroke="none" points="458.03,-683 458.03,-718.2 518.03,-718.2 518.03,-683 458.03,-683"/>
+<polygon fill="none" stroke="#a18bcc" points="458.03,-683 458.03,-718.2 518.03,-718.2 518.03,-683 458.03,-683"/>
+<text xml:space="preserve" text-anchor="start" x="466.03" y="-694.2" font-family="Apple SD Gothic Neo, Noto Sans CJK KR, sans-serif" font-size="16.00">NULL</text>
+<polygon fill="#f8f8fc" stroke="none" points="518.03,-683 518.03,-718.2 773.03,-718.2 773.03,-683 518.03,-683"/>
+<polygon fill="none" stroke="#a18bcc" points="518.03,-683 518.03,-718.2 773.03,-718.2 773.03,-683 518.03,-683"/>
+<text xml:space="preserve" text-anchor="start" x="526.03" y="-694.2" font-family="Apple SD Gothic Neo, Noto Sans CJK KR, sans-serif" font-size="16.00"> </text>
+<polygon fill="#ffffff" stroke="none" points="38.03,-647.8 38.03,-683 158.03,-683 158.03,-647.8 38.03,-647.8"/>
+<polygon fill="none" stroke="#a18bcc" points="38.03,-647.8 38.03,-683 158.03,-683 158.03,-647.8 38.03,-647.8"/>
+<text xml:space="preserve" text-anchor="start" x="46.03" y="-659" font-family="Apple SD Gothic Neo, Noto Sans CJK KR, sans-serif" font-size="16.00">text</text>
+<polygon fill="#ffffff" stroke="none" points="158.03,-647.8 158.03,-683 383.03,-683 383.03,-647.8 158.03,-647.8"/>
+<polygon fill="none" stroke="#a18bcc" points="158.03,-647.8 158.03,-683 383.03,-683 383.03,-647.8 158.03,-647.8"/>
+<text xml:space="preserve" text-anchor="start" x="166.03" y="-659" font-family="Apple SD Gothic Neo, Noto Sans CJK KR, sans-serif" font-size="16.00">corpus_version</text>
+<polygon fill="#ffffff" stroke="none" points="383.03,-647.8 383.03,-683 458.03,-683 458.03,-647.8 383.03,-647.8"/>
+<polygon fill="none" stroke="#a18bcc" points="383.03,-647.8 383.03,-683 458.03,-683 458.03,-647.8 383.03,-647.8"/>
+<text xml:space="preserve" text-anchor="start" x="391.03" y="-659" font-family="Apple SD Gothic Neo, Noto Sans CJK KR, sans-serif" font-size="16.00"> </text>
+<polygon fill="#ffffff" stroke="none" points="458.03,-647.8 458.03,-683 518.03,-683 518.03,-647.8 458.03,-647.8"/>
+<polygon fill="none" stroke="#a18bcc" points="458.03,-647.8 458.03,-683 518.03,-683 518.03,-647.8 458.03,-647.8"/>
+<text xml:space="preserve" text-anchor="start" x="466.03" y="-659" font-family="Apple SD Gothic Neo, Noto Sans CJK KR, sans-serif" font-size="16.00">NN</text>
+<polygon fill="#ffffff" stroke="none" points="518.03,-647.8 518.03,-683 773.03,-683 773.03,-647.8 518.03,-647.8"/>
+<polygon fill="none" stroke="#a18bcc" points="518.03,-647.8 518.03,-683 773.03,-683 773.03,-647.8 518.03,-647.8"/>
+<text xml:space="preserve" text-anchor="start" x="526.03" y="-659" font-family="Apple SD Gothic Neo, Noto Sans CJK KR, sans-serif" font-size="16.00"> </text>
+</g>
+<!-- knowledge.chunks -->
+<g id="node2" class="node">
+<title>knowledge.chunks</title>
+<polygon fill="none" stroke="#a18bcc" points="0,0 0,-502 811.06,-502 811.06,0 0,0"/>
+<polygon fill="#ece7fa" stroke="none" points="1,-458.6 1,-501 810.06,-501 810.06,-458.6 1,-458.6"/>
+<polygon fill="none" stroke="#a18bcc" points="1,-458.6 1,-501 810.06,-501 810.06,-458.6 1,-458.6"/>
+<text xml:space="preserve" text-anchor="start" x="307.12" y="-474.2" font-family="Apple SD Gothic Neo, Noto Sans CJK KR, sans-serif" font-weight="bold" font-size="22.00">knowledge.chunks</text>
+<polygon fill="#f0f2f7" stroke="none" points="1,-423.4 1,-458.6 121,-458.6 121,-423.4 1,-423.4"/>
+<polygon fill="none" stroke="#a18bcc" points="1,-423.4 1,-458.6 121,-458.6 121,-423.4 1,-423.4"/>
+<text xml:space="preserve" text-anchor="start" x="9" y="-437.2" font-family="Apple SD Gothic Neo, Noto Sans CJK KR, sans-serif" font-weight="bold" font-size="16.00">타입</text>
+<polygon fill="#f0f2f7" stroke="none" points="121,-423.4 121,-458.6 346,-458.6 346,-423.4 121,-423.4"/>
+<polygon fill="none" stroke="#a18bcc" points="121,-423.4 121,-458.6 346,-458.6 346,-423.4 121,-423.4"/>
+<text xml:space="preserve" text-anchor="start" x="129" y="-437.2" font-family="Apple SD Gothic Neo, Noto Sans CJK KR, sans-serif" font-weight="bold" font-size="16.00">컬럼</text>
+<polygon fill="#f0f2f7" stroke="none" points="346,-423.4 346,-458.6 421,-458.6 421,-423.4 346,-423.4"/>
+<polygon fill="none" stroke="#a18bcc" points="346,-423.4 346,-458.6 421,-458.6 421,-423.4 346,-423.4"/>
+<text xml:space="preserve" text-anchor="start" x="354" y="-437.2" font-family="Apple SD Gothic Neo, Noto Sans CJK KR, sans-serif" font-weight="bold" font-size="16.00">키</text>
+<polygon fill="#f0f2f7" stroke="none" points="421,-423.4 421,-458.6 481,-458.6 481,-423.4 421,-423.4"/>
+<polygon fill="none" stroke="#a18bcc" points="421,-423.4 421,-458.6 481,-458.6 481,-423.4 421,-423.4"/>
+<text xml:space="preserve" text-anchor="start" x="429" y="-437.2" font-family="Apple SD Gothic Neo, Noto Sans CJK KR, sans-serif" font-weight="bold" font-size="16.00">NULL</text>
+<polygon fill="#f0f2f7" stroke="none" points="481,-423.4 481,-458.6 810.06,-458.6 810.06,-423.4 481,-423.4"/>
+<polygon fill="none" stroke="#a18bcc" points="481,-423.4 481,-458.6 810.06,-458.6 810.06,-423.4 481,-423.4"/>
+<text xml:space="preserve" text-anchor="start" x="489" y="-437.2" font-family="Apple SD Gothic Neo, Noto Sans CJK KR, sans-serif" font-weight="bold" font-size="16.00">참고</text>
+<polygon fill="#ffffff" stroke="none" points="1,-388.2 1,-423.4 121,-423.4 121,-388.2 1,-388.2"/>
+<polygon fill="none" stroke="#a18bcc" points="1,-388.2 1,-423.4 121,-423.4 121,-388.2 1,-388.2"/>
+<text xml:space="preserve" text-anchor="start" x="9" y="-399.4" font-family="Apple SD Gothic Neo, Noto Sans CJK KR, sans-serif" font-size="16.00">uuid</text>
+<polygon fill="#ffffff" stroke="none" points="121,-388.2 121,-423.4 346,-423.4 346,-388.2 121,-388.2"/>
+<polygon fill="none" stroke="#a18bcc" points="121,-388.2 121,-423.4 346,-423.4 346,-388.2 121,-388.2"/>
+<text xml:space="preserve" text-anchor="start" x="129" y="-399.4" font-family="Apple SD Gothic Neo, Noto Sans CJK KR, sans-serif" font-size="16.00">chunk_id</text>
+<polygon fill="#ffffff" stroke="none" points="346,-388.2 346,-423.4 421,-423.4 421,-388.2 346,-388.2"/>
+<polygon fill="none" stroke="#a18bcc" points="346,-388.2 346,-423.4 421,-423.4 421,-388.2 346,-388.2"/>
+<text xml:space="preserve" text-anchor="start" x="354" y="-399.4" font-family="Apple SD Gothic Neo, Noto Sans CJK KR, sans-serif" font-size="16.00">PK</text>
+<polygon fill="#ffffff" stroke="none" points="421,-388.2 421,-423.4 481,-423.4 481,-388.2 421,-388.2"/>
+<polygon fill="none" stroke="#a18bcc" points="421,-388.2 421,-423.4 481,-423.4 481,-388.2 421,-388.2"/>
+<text xml:space="preserve" text-anchor="start" x="429" y="-399.4" font-family="Apple SD Gothic Neo, Noto Sans CJK KR, sans-serif" font-size="16.00">NN</text>
+<polygon fill="#ffffff" stroke="none" points="481,-388.2 481,-423.4 810.06,-423.4 810.06,-388.2 481,-388.2"/>
+<polygon fill="none" stroke="#a18bcc" points="481,-388.2 481,-423.4 810.06,-423.4 810.06,-388.2 481,-388.2"/>
+<text xml:space="preserve" text-anchor="start" x="489" y="-399.4" font-family="Apple SD Gothic Neo, Noto Sans CJK KR, sans-serif" font-size="16.00"> </text>
+<polygon fill="#f8f8fc" stroke="none" points="1,-353 1,-388.2 121,-388.2 121,-353 1,-353"/>
+<polygon fill="none" stroke="#a18bcc" points="1,-353 1,-388.2 121,-388.2 121,-353 1,-353"/>
+<text xml:space="preserve" text-anchor="start" x="9" y="-364.2" font-family="Apple SD Gothic Neo, Noto Sans CJK KR, sans-serif" font-size="16.00">uuid</text>
+<polygon fill="#f8f8fc" stroke="none" points="121,-353 121,-388.2 346,-388.2 346,-353 121,-353"/>
+<polygon fill="none" stroke="#a18bcc" points="121,-353 121,-388.2 346,-388.2 346,-353 121,-353"/>
+<text xml:space="preserve" text-anchor="start" x="129" y="-364.2" font-family="Apple SD Gothic Neo, Noto Sans CJK KR, sans-serif" font-size="16.00">document_version_id</text>
+<polygon fill="#f8f8fc" stroke="none" points="346,-353 346,-388.2 421,-388.2 421,-353 346,-353"/>
+<polygon fill="none" stroke="#a18bcc" points="346,-353 346,-388.2 421,-388.2 421,-353 346,-353"/>
+<text xml:space="preserve" text-anchor="start" x="354" y="-364.2" font-family="Apple SD Gothic Neo, Noto Sans CJK KR, sans-serif" font-size="16.00">FK,UK</text>
+<polygon fill="#f8f8fc" stroke="none" points="421,-353 421,-388.2 481,-388.2 481,-353 421,-353"/>
+<polygon fill="none" stroke="#a18bcc" points="421,-353 421,-388.2 481,-388.2 481,-353 421,-353"/>
+<text xml:space="preserve" text-anchor="start" x="429" y="-364.2" font-family="Apple SD Gothic Neo, Noto Sans CJK KR, sans-serif" font-size="16.00">NN</text>
+<polygon fill="#f8f8fc" stroke="none" points="481,-353 481,-388.2 810.06,-388.2 810.06,-353 481,-353"/>
+<polygon fill="none" stroke="#a18bcc" points="481,-353 481,-388.2 810.06,-388.2 810.06,-353 481,-353"/>
+<text xml:space="preserve" text-anchor="start" x="489" y="-364.2" font-family="Apple SD Gothic Neo, Noto Sans CJK KR, sans-serif" font-size="16.00">→ document_versions.document_version_id</text>
+<polygon fill="#ffffff" stroke="none" points="1,-317.8 1,-353 121,-353 121,-317.8 1,-317.8"/>
+<polygon fill="none" stroke="#a18bcc" points="1,-317.8 1,-353 121,-353 121,-317.8 1,-317.8"/>
+<text xml:space="preserve" text-anchor="start" x="9" y="-329" font-family="Apple SD Gothic Neo, Noto Sans CJK KR, sans-serif" font-size="16.00">integer</text>
+<polygon fill="#ffffff" stroke="none" points="121,-317.8 121,-353 346,-353 346,-317.8 121,-317.8"/>
+<polygon fill="none" stroke="#a18bcc" points="121,-317.8 121,-353 346,-353 346,-317.8 121,-317.8"/>
+<text xml:space="preserve" text-anchor="start" x="129" y="-329" font-family="Apple SD Gothic Neo, Noto Sans CJK KR, sans-serif" font-size="16.00">chunk_index</text>
+<polygon fill="#ffffff" stroke="none" points="346,-317.8 346,-353 421,-353 421,-317.8 346,-317.8"/>
+<polygon fill="none" stroke="#a18bcc" points="346,-317.8 346,-353 421,-353 421,-317.8 346,-317.8"/>
+<text xml:space="preserve" text-anchor="start" x="354" y="-329" font-family="Apple SD Gothic Neo, Noto Sans CJK KR, sans-serif" font-size="16.00">UK</text>
+<polygon fill="#ffffff" stroke="none" points="421,-317.8 421,-353 481,-353 481,-317.8 421,-317.8"/>
+<polygon fill="none" stroke="#a18bcc" points="421,-317.8 421,-353 481,-353 481,-317.8 421,-317.8"/>
+<text xml:space="preserve" text-anchor="start" x="429" y="-329" font-family="Apple SD Gothic Neo, Noto Sans CJK KR, sans-serif" font-size="16.00">NN</text>
+<polygon fill="#ffffff" stroke="none" points="481,-317.8 481,-353 810.06,-353 810.06,-317.8 481,-317.8"/>
+<polygon fill="none" stroke="#a18bcc" points="481,-317.8 481,-353 810.06,-353 810.06,-317.8 481,-317.8"/>
+<text xml:space="preserve" text-anchor="start" x="489" y="-329" font-family="Apple SD Gothic Neo, Noto Sans CJK KR, sans-serif" font-size="16.00">복합 키 구성</text>
+<polygon fill="#f8f8fc" stroke="none" points="1,-282.6 1,-317.8 121,-317.8 121,-282.6 1,-282.6"/>
+<polygon fill="none" stroke="#a18bcc" points="1,-282.6 1,-317.8 121,-317.8 121,-282.6 1,-282.6"/>
+<text xml:space="preserve" text-anchor="start" x="9" y="-293.8" font-family="Apple SD Gothic Neo, Noto Sans CJK KR, sans-serif" font-size="16.00">uuid</text>
+<polygon fill="#f8f8fc" stroke="none" points="121,-282.6 121,-317.8 346,-317.8 346,-282.6 121,-282.6"/>
+<polygon fill="none" stroke="#a18bcc" points="121,-282.6 121,-317.8 346,-317.8 346,-282.6 121,-282.6"/>
+<text xml:space="preserve" text-anchor="start" x="129" y="-293.8" font-family="Apple SD Gothic Neo, Noto Sans CJK KR, sans-serif" font-size="16.00">parent_chunk_id</text>
+<polygon fill="#f8f8fc" stroke="none" points="346,-282.6 346,-317.8 421,-317.8 421,-282.6 346,-282.6"/>
+<polygon fill="none" stroke="#a18bcc" points="346,-282.6 346,-317.8 421,-317.8 421,-282.6 346,-282.6"/>
+<text xml:space="preserve" text-anchor="start" x="354" y="-293.8" font-family="Apple SD Gothic Neo, Noto Sans CJK KR, sans-serif" font-size="16.00">FK</text>
+<polygon fill="#f8f8fc" stroke="none" points="421,-282.6 421,-317.8 481,-317.8 481,-282.6 421,-282.6"/>
+<polygon fill="none" stroke="#a18bcc" points="421,-282.6 421,-317.8 481,-317.8 481,-282.6 421,-282.6"/>
+<text xml:space="preserve" text-anchor="start" x="429" y="-293.8" font-family="Apple SD Gothic Neo, Noto Sans CJK KR, sans-serif" font-size="16.00">NULL</text>
+<polygon fill="#f8f8fc" stroke="none" points="481,-282.6 481,-317.8 810.06,-317.8 810.06,-282.6 481,-282.6"/>
+<polygon fill="none" stroke="#a18bcc" points="481,-282.6 481,-317.8 810.06,-317.8 810.06,-282.6 481,-282.6"/>
+<text xml:space="preserve" text-anchor="start" x="489" y="-293.8" font-family="Apple SD Gothic Neo, Noto Sans CJK KR, sans-serif" font-size="16.00">→ chunks.chunk_id</text>
+<polygon fill="#ffffff" stroke="none" points="1,-247.4 1,-282.6 121,-282.6 121,-247.4 1,-247.4"/>
+<polygon fill="none" stroke="#a18bcc" points="1,-247.4 1,-282.6 121,-282.6 121,-247.4 1,-247.4"/>
+<text xml:space="preserve" text-anchor="start" x="9" y="-258.6" font-family="Apple SD Gothic Neo, Noto Sans CJK KR, sans-serif" font-size="16.00">text</text>
+<polygon fill="#ffffff" stroke="none" points="121,-247.4 121,-282.6 346,-282.6 346,-247.4 121,-247.4"/>
+<polygon fill="none" stroke="#a18bcc" points="121,-247.4 121,-282.6 346,-282.6 346,-247.4 121,-247.4"/>
+<text xml:space="preserve" text-anchor="start" x="129" y="-258.6" font-family="Apple SD Gothic Neo, Noto Sans CJK KR, sans-serif" font-size="16.00">section</text>
+<polygon fill="#ffffff" stroke="none" points="346,-247.4 346,-282.6 421,-282.6 421,-247.4 346,-247.4"/>
+<polygon fill="none" stroke="#a18bcc" points="346,-247.4 346,-282.6 421,-282.6 421,-247.4 346,-247.4"/>
+<text xml:space="preserve" text-anchor="start" x="354" y="-258.6" font-family="Apple SD Gothic Neo, Noto Sans CJK KR, sans-serif" font-size="16.00"> </text>
+<polygon fill="#ffffff" stroke="none" points="421,-247.4 421,-282.6 481,-282.6 481,-247.4 421,-247.4"/>
+<polygon fill="none" stroke="#a18bcc" points="421,-247.4 421,-282.6 481,-282.6 481,-247.4 421,-247.4"/>
+<text xml:space="preserve" text-anchor="start" x="429" y="-258.6" font-family="Apple SD Gothic Neo, Noto Sans CJK KR, sans-serif" font-size="16.00">NULL</text>
+<polygon fill="#ffffff" stroke="none" points="481,-247.4 481,-282.6 810.06,-282.6 810.06,-247.4 481,-247.4"/>
+<polygon fill="none" stroke="#a18bcc" points="481,-247.4 481,-282.6 810.06,-282.6 810.06,-247.4 481,-247.4"/>
+<text xml:space="preserve" text-anchor="start" x="489" y="-258.6" font-family="Apple SD Gothic Neo, Noto Sans CJK KR, sans-serif" font-size="16.00"> </text>
+<polygon fill="#f8f8fc" stroke="none" points="1,-212.2 1,-247.4 121,-247.4 121,-212.2 1,-212.2"/>
+<polygon fill="none" stroke="#a18bcc" points="1,-212.2 1,-247.4 121,-247.4 121,-212.2 1,-212.2"/>
+<text xml:space="preserve" text-anchor="start" x="9" y="-223.4" font-family="Apple SD Gothic Neo, Noto Sans CJK KR, sans-serif" font-size="16.00">integer</text>
+<polygon fill="#f8f8fc" stroke="none" points="121,-212.2 121,-247.4 346,-247.4 346,-212.2 121,-212.2"/>
+<polygon fill="none" stroke="#a18bcc" points="121,-212.2 121,-247.4 346,-247.4 346,-212.2 121,-212.2"/>
+<text xml:space="preserve" text-anchor="start" x="129" y="-223.4" font-family="Apple SD Gothic Neo, Noto Sans CJK KR, sans-serif" font-size="16.00">page_from</text>
+<polygon fill="#f8f8fc" stroke="none" points="346,-212.2 346,-247.4 421,-247.4 421,-212.2 346,-212.2"/>
+<polygon fill="none" stroke="#a18bcc" points="346,-212.2 346,-247.4 421,-247.4 421,-212.2 346,-212.2"/>
+<text xml:space="preserve" text-anchor="start" x="354" y="-223.4" font-family="Apple SD Gothic Neo, Noto Sans CJK KR, sans-serif" font-size="16.00"> </text>
+<polygon fill="#f8f8fc" stroke="none" points="421,-212.2 421,-247.4 481,-247.4 481,-212.2 421,-212.2"/>
+<polygon fill="none" stroke="#a18bcc" points="421,-212.2 421,-247.4 481,-247.4 481,-212.2 421,-212.2"/>
+<text xml:space="preserve" text-anchor="start" x="429" y="-223.4" font-family="Apple SD Gothic Neo, Noto Sans CJK KR, sans-serif" font-size="16.00">NULL</text>
+<polygon fill="#f8f8fc" stroke="none" points="481,-212.2 481,-247.4 810.06,-247.4 810.06,-212.2 481,-212.2"/>
+<polygon fill="none" stroke="#a18bcc" points="481,-212.2 481,-247.4 810.06,-247.4 810.06,-212.2 481,-212.2"/>
+<text xml:space="preserve" text-anchor="start" x="489" y="-223.4" font-family="Apple SD Gothic Neo, Noto Sans CJK KR, sans-serif" font-size="16.00"> </text>
+<polygon fill="#ffffff" stroke="none" points="1,-177 1,-212.2 121,-212.2 121,-177 1,-177"/>
+<polygon fill="none" stroke="#a18bcc" points="1,-177 1,-212.2 121,-212.2 121,-177 1,-177"/>
+<text xml:space="preserve" text-anchor="start" x="9" y="-188.2" font-family="Apple SD Gothic Neo, Noto Sans CJK KR, sans-serif" font-size="16.00">integer</text>
+<polygon fill="#ffffff" stroke="none" points="121,-177 121,-212.2 346,-212.2 346,-177 121,-177"/>
+<polygon fill="none" stroke="#a18bcc" points="121,-177 121,-212.2 346,-212.2 346,-177 121,-177"/>
+<text xml:space="preserve" text-anchor="start" x="129" y="-188.2" font-family="Apple SD Gothic Neo, Noto Sans CJK KR, sans-serif" font-size="16.00">page_until</text>
+<polygon fill="#ffffff" stroke="none" points="346,-177 346,-212.2 421,-212.2 421,-177 346,-177"/>
+<polygon fill="none" stroke="#a18bcc" points="346,-177 346,-212.2 421,-212.2 421,-177 346,-177"/>
+<text xml:space="preserve" text-anchor="start" x="354" y="-188.2" font-family="Apple SD Gothic Neo, Noto Sans CJK KR, sans-serif" font-size="16.00"> </text>
+<polygon fill="#ffffff" stroke="none" points="421,-177 421,-212.2 481,-212.2 481,-177 421,-177"/>
+<polygon fill="none" stroke="#a18bcc" points="421,-177 421,-212.2 481,-212.2 481,-177 421,-177"/>
+<text xml:space="preserve" text-anchor="start" x="429" y="-188.2" font-family="Apple SD Gothic Neo, Noto Sans CJK KR, sans-serif" font-size="16.00">NULL</text>
+<polygon fill="#ffffff" stroke="none" points="481,-177 481,-212.2 810.06,-212.2 810.06,-177 481,-177"/>
+<polygon fill="none" stroke="#a18bcc" points="481,-177 481,-212.2 810.06,-212.2 810.06,-177 481,-177"/>
+<text xml:space="preserve" text-anchor="start" x="489" y="-188.2" font-family="Apple SD Gothic Neo, Noto Sans CJK KR, sans-serif" font-size="16.00"> </text>
+<polygon fill="#f8f8fc" stroke="none" points="1,-141.8 1,-177 121,-177 121,-141.8 1,-141.8"/>
+<polygon fill="none" stroke="#a18bcc" points="1,-141.8 1,-177 121,-177 121,-141.8 1,-141.8"/>
+<text xml:space="preserve" text-anchor="start" x="9" y="-153" font-family="Apple SD Gothic Neo, Noto Sans CJK KR, sans-serif" font-size="16.00">text</text>
+<polygon fill="#f8f8fc" stroke="none" points="121,-141.8 121,-177 346,-177 346,-141.8 121,-141.8"/>
+<polygon fill="none" stroke="#a18bcc" points="121,-141.8 121,-177 346,-177 346,-141.8 121,-141.8"/>
+<text xml:space="preserve" text-anchor="start" x="129" y="-153" font-family="Apple SD Gothic Neo, Noto Sans CJK KR, sans-serif" font-size="16.00">body</text>
+<polygon fill="#f8f8fc" stroke="none" points="346,-141.8 346,-177 421,-177 421,-141.8 346,-141.8"/>
+<polygon fill="none" stroke="#a18bcc" points="346,-141.8 346,-177 421,-177 421,-141.8 346,-141.8"/>
+<text xml:space="preserve" text-anchor="start" x="354" y="-153" font-family="Apple SD Gothic Neo, Noto Sans CJK KR, sans-serif" font-size="16.00"> </text>
+<polygon fill="#f8f8fc" stroke="none" points="421,-141.8 421,-177 481,-177 481,-141.8 421,-141.8"/>
+<polygon fill="none" stroke="#a18bcc" points="421,-141.8 421,-177 481,-177 481,-141.8 421,-141.8"/>
+<text xml:space="preserve" text-anchor="start" x="429" y="-153" font-family="Apple SD Gothic Neo, Noto Sans CJK KR, sans-serif" font-size="16.00">NN</text>
+<polygon fill="#f8f8fc" stroke="none" points="481,-141.8 481,-177 810.06,-177 810.06,-141.8 481,-141.8"/>
+<polygon fill="none" stroke="#a18bcc" points="481,-141.8 481,-177 810.06,-177 810.06,-141.8 481,-141.8"/>
+<text xml:space="preserve" text-anchor="start" x="489" y="-153" font-family="Apple SD Gothic Neo, Noto Sans CJK KR, sans-serif" font-size="16.00"> </text>
+<polygon fill="#ffffff" stroke="none" points="1,-106.6 1,-141.8 121,-141.8 121,-106.6 1,-106.6"/>
+<polygon fill="none" stroke="#a18bcc" points="1,-106.6 1,-141.8 121,-141.8 121,-106.6 1,-106.6"/>
+<text xml:space="preserve" text-anchor="start" x="9" y="-117.8" font-family="Apple SD Gothic Neo, Noto Sans CJK KR, sans-serif" font-size="16.00">text</text>
+<polygon fill="#ffffff" stroke="none" points="121,-106.6 121,-141.8 346,-141.8 346,-106.6 121,-106.6"/>
+<polygon fill="none" stroke="#a18bcc" points="121,-106.6 121,-141.8 346,-141.8 346,-106.6 121,-106.6"/>
+<text xml:space="preserve" text-anchor="start" x="129" y="-117.8" font-family="Apple SD Gothic Neo, Noto Sans CJK KR, sans-serif" font-size="16.00">context</text>
+<polygon fill="#ffffff" stroke="none" points="346,-106.6 346,-141.8 421,-141.8 421,-106.6 346,-106.6"/>
+<polygon fill="none" stroke="#a18bcc" points="346,-106.6 346,-141.8 421,-141.8 421,-106.6 346,-106.6"/>
+<text xml:space="preserve" text-anchor="start" x="354" y="-117.8" font-family="Apple SD Gothic Neo, Noto Sans CJK KR, sans-serif" font-size="16.00"> </text>
+<polygon fill="#ffffff" stroke="none" points="421,-106.6 421,-141.8 481,-141.8 481,-106.6 421,-106.6"/>
+<polygon fill="none" stroke="#a18bcc" points="421,-106.6 421,-141.8 481,-141.8 481,-106.6 421,-106.6"/>
+<text xml:space="preserve" text-anchor="start" x="429" y="-117.8" font-family="Apple SD Gothic Neo, Noto Sans CJK KR, sans-serif" font-size="16.00">NN</text>
+<polygon fill="#ffffff" stroke="none" points="481,-106.6 481,-141.8 810.06,-141.8 810.06,-106.6 481,-106.6"/>
+<polygon fill="none" stroke="#a18bcc" points="481,-106.6 481,-141.8 810.06,-141.8 810.06,-106.6 481,-106.6"/>
+<text xml:space="preserve" text-anchor="start" x="489" y="-117.8" font-family="Apple SD Gothic Neo, Noto Sans CJK KR, sans-serif" font-size="16.00"> </text>
+<polygon fill="#f8f8fc" stroke="none" points="1,-71.4 1,-106.6 121,-106.6 121,-71.4 1,-71.4"/>
+<polygon fill="none" stroke="#a18bcc" points="1,-71.4 1,-106.6 121,-106.6 121,-71.4 1,-71.4"/>
+<text xml:space="preserve" text-anchor="start" x="9" y="-82.6" font-family="Apple SD Gothic Neo, Noto Sans CJK KR, sans-serif" font-size="16.00">text</text>
+<polygon fill="#f8f8fc" stroke="none" points="121,-71.4 121,-106.6 346,-106.6 346,-71.4 121,-71.4"/>
+<polygon fill="none" stroke="#a18bcc" points="121,-71.4 121,-106.6 346,-106.6 346,-71.4 121,-71.4"/>
+<text xml:space="preserve" text-anchor="start" x="129" y="-82.6" font-family="Apple SD Gothic Neo, Noto Sans CJK KR, sans-serif" font-size="16.00">embedding_model</text>
+<polygon fill="#f8f8fc" stroke="none" points="346,-71.4 346,-106.6 421,-106.6 421,-71.4 346,-71.4"/>
+<polygon fill="none" stroke="#a18bcc" points="346,-71.4 346,-106.6 421,-106.6 421,-71.4 346,-71.4"/>
+<text xml:space="preserve" text-anchor="start" x="354" y="-82.6" font-family="Apple SD Gothic Neo, Noto Sans CJK KR, sans-serif" font-size="16.00"> </text>
+<polygon fill="#f8f8fc" stroke="none" points="421,-71.4 421,-106.6 481,-106.6 481,-71.4 421,-71.4"/>
+<polygon fill="none" stroke="#a18bcc" points="421,-71.4 421,-106.6 481,-106.6 481,-71.4 421,-71.4"/>
+<text xml:space="preserve" text-anchor="start" x="429" y="-82.6" font-family="Apple SD Gothic Neo, Noto Sans CJK KR, sans-serif" font-size="16.00">NULL</text>
+<polygon fill="#f8f8fc" stroke="none" points="481,-71.4 481,-106.6 810.06,-106.6 810.06,-71.4 481,-71.4"/>
+<polygon fill="none" stroke="#a18bcc" points="481,-71.4 481,-106.6 810.06,-106.6 810.06,-71.4 481,-71.4"/>
+<text xml:space="preserve" text-anchor="start" x="489" y="-82.6" font-family="Apple SD Gothic Neo, Noto Sans CJK KR, sans-serif" font-size="16.00"> </text>
+<polygon fill="#ffffff" stroke="none" points="1,-36.2 1,-71.4 121,-71.4 121,-36.2 1,-36.2"/>
+<polygon fill="none" stroke="#a18bcc" points="1,-36.2 1,-71.4 121,-71.4 121,-36.2 1,-36.2"/>
+<text xml:space="preserve" text-anchor="start" x="9" y="-47.4" font-family="Apple SD Gothic Neo, Noto Sans CJK KR, sans-serif" font-size="16.00">text</text>
+<polygon fill="#ffffff" stroke="none" points="121,-36.2 121,-71.4 346,-71.4 346,-36.2 121,-36.2"/>
+<polygon fill="none" stroke="#a18bcc" points="121,-36.2 121,-71.4 346,-71.4 346,-36.2 121,-36.2"/>
+<text xml:space="preserve" text-anchor="start" x="129" y="-47.4" font-family="Apple SD Gothic Neo, Noto Sans CJK KR, sans-serif" font-size="16.00">embedding_revision</text>
+<polygon fill="#ffffff" stroke="none" points="346,-36.2 346,-71.4 421,-71.4 421,-36.2 346,-36.2"/>
+<polygon fill="none" stroke="#a18bcc" points="346,-36.2 346,-71.4 421,-71.4 421,-36.2 346,-36.2"/>
+<text xml:space="preserve" text-anchor="start" x="354" y="-47.4" font-family="Apple SD Gothic Neo, Noto Sans CJK KR, sans-serif" font-size="16.00"> </text>
+<polygon fill="#ffffff" stroke="none" points="421,-36.2 421,-71.4 481,-71.4 481,-36.2 421,-36.2"/>
+<polygon fill="none" stroke="#a18bcc" points="421,-36.2 421,-71.4 481,-71.4 481,-36.2 421,-36.2"/>
+<text xml:space="preserve" text-anchor="start" x="429" y="-47.4" font-family="Apple SD Gothic Neo, Noto Sans CJK KR, sans-serif" font-size="16.00">NULL</text>
+<polygon fill="#ffffff" stroke="none" points="481,-36.2 481,-71.4 810.06,-71.4 810.06,-36.2 481,-36.2"/>
+<polygon fill="none" stroke="#a18bcc" points="481,-36.2 481,-71.4 810.06,-71.4 810.06,-36.2 481,-36.2"/>
+<text xml:space="preserve" text-anchor="start" x="489" y="-47.4" font-family="Apple SD Gothic Neo, Noto Sans CJK KR, sans-serif" font-size="16.00"> </text>
+<polygon fill="#f8f8fc" stroke="none" points="1,-1 1,-36.2 121,-36.2 121,-1 1,-1"/>
+<polygon fill="none" stroke="#a18bcc" points="1,-1 1,-36.2 121,-36.2 121,-1 1,-1"/>
+<text xml:space="preserve" text-anchor="start" x="9" y="-12.2" font-family="Apple SD Gothic Neo, Noto Sans CJK KR, sans-serif" font-size="16.00">vector(1024)</text>
+<polygon fill="#f8f8fc" stroke="none" points="121,-1 121,-36.2 346,-36.2 346,-1 121,-1"/>
+<polygon fill="none" stroke="#a18bcc" points="121,-1 121,-36.2 346,-36.2 346,-1 121,-1"/>
+<text xml:space="preserve" text-anchor="start" x="129" y="-12.2" font-family="Apple SD Gothic Neo, Noto Sans CJK KR, sans-serif" font-size="16.00">embedding</text>
+<polygon fill="#f8f8fc" stroke="none" points="346,-1 346,-36.2 421,-36.2 421,-1 346,-1"/>
+<polygon fill="none" stroke="#a18bcc" points="346,-1 346,-36.2 421,-36.2 421,-1 346,-1"/>
+<text xml:space="preserve" text-anchor="start" x="354" y="-12.2" font-family="Apple SD Gothic Neo, Noto Sans CJK KR, sans-serif" font-size="16.00"> </text>
+<polygon fill="#f8f8fc" stroke="none" points="421,-1 421,-36.2 481,-36.2 481,-1 421,-1"/>
+<polygon fill="none" stroke="#a18bcc" points="421,-1 421,-36.2 481,-36.2 481,-1 421,-1"/>
+<text xml:space="preserve" text-anchor="start" x="429" y="-12.2" font-family="Apple SD Gothic Neo, Noto Sans CJK KR, sans-serif" font-size="16.00">NULL</text>
+<polygon fill="#f8f8fc" stroke="none" points="481,-1 481,-36.2 810.06,-36.2 810.06,-1 481,-1"/>
+<polygon fill="none" stroke="#a18bcc" points="481,-1 481,-36.2 810.06,-36.2 810.06,-1 481,-1"/>
+<text xml:space="preserve" text-anchor="start" x="489" y="-12.2" font-family="Apple SD Gothic Neo, Noto Sans CJK KR, sans-serif" font-size="16.00">pgvector 1024차원</text>
+</g>
+<!-- knowledge.article_links -->
+<g id="node3" class="node">
+<title>knowledge.article_links</title>
+<polygon fill="none" stroke="#a18bcc" points="828.03,-858 828.03,-1113.6 1565.03,-1113.6 1565.03,-858 828.03,-858"/>
+<polygon fill="#ece7fa" stroke="none" points="829.03,-1070.2 829.03,-1112.6 1564.03,-1112.6 1564.03,-1070.2 829.03,-1070.2"/>
+<polygon fill="none" stroke="#a18bcc" points="829.03,-1070.2 829.03,-1112.6 1564.03,-1112.6 1564.03,-1070.2 829.03,-1070.2"/>
+<text xml:space="preserve" text-anchor="start" x="1073.04" y="-1085.8" font-family="Apple SD Gothic Neo, Noto Sans CJK KR, sans-serif" font-weight="bold" font-size="22.00">knowledge.article_links</text>
+<polygon fill="#f0f2f7" stroke="none" points="829.03,-1035 829.03,-1070.2 949.03,-1070.2 949.03,-1035 829.03,-1035"/>
+<polygon fill="none" stroke="#a18bcc" points="829.03,-1035 829.03,-1070.2 949.03,-1070.2 949.03,-1035 829.03,-1035"/>
+<text xml:space="preserve" text-anchor="start" x="837.03" y="-1048.8" font-family="Apple SD Gothic Neo, Noto Sans CJK KR, sans-serif" font-weight="bold" font-size="16.00">타입</text>
+<polygon fill="#f0f2f7" stroke="none" points="949.03,-1035 949.03,-1070.2 1174.03,-1070.2 1174.03,-1035 949.03,-1035"/>
+<polygon fill="none" stroke="#a18bcc" points="949.03,-1035 949.03,-1070.2 1174.03,-1070.2 1174.03,-1035 949.03,-1035"/>
+<text xml:space="preserve" text-anchor="start" x="957.03" y="-1048.8" font-family="Apple SD Gothic Neo, Noto Sans CJK KR, sans-serif" font-weight="bold" font-size="16.00">컬럼</text>
+<polygon fill="#f0f2f7" stroke="none" points="1174.03,-1035 1174.03,-1070.2 1249.03,-1070.2 1249.03,-1035 1174.03,-1035"/>
+<polygon fill="none" stroke="#a18bcc" points="1174.03,-1035 1174.03,-1070.2 1249.03,-1070.2 1249.03,-1035 1174.03,-1035"/>
+<text xml:space="preserve" text-anchor="start" x="1182.03" y="-1048.8" font-family="Apple SD Gothic Neo, Noto Sans CJK KR, sans-serif" font-weight="bold" font-size="16.00">키</text>
+<polygon fill="#f0f2f7" stroke="none" points="1249.03,-1035 1249.03,-1070.2 1309.03,-1070.2 1309.03,-1035 1249.03,-1035"/>
+<polygon fill="none" stroke="#a18bcc" points="1249.03,-1035 1249.03,-1070.2 1309.03,-1070.2 1309.03,-1035 1249.03,-1035"/>
+<text xml:space="preserve" text-anchor="start" x="1257.03" y="-1048.8" font-family="Apple SD Gothic Neo, Noto Sans CJK KR, sans-serif" font-weight="bold" font-size="16.00">NULL</text>
+<polygon fill="#f0f2f7" stroke="none" points="1309.03,-1035 1309.03,-1070.2 1564.03,-1070.2 1564.03,-1035 1309.03,-1035"/>
+<polygon fill="none" stroke="#a18bcc" points="1309.03,-1035 1309.03,-1070.2 1564.03,-1070.2 1564.03,-1035 1309.03,-1035"/>
+<text xml:space="preserve" text-anchor="start" x="1317.03" y="-1048.8" font-family="Apple SD Gothic Neo, Noto Sans CJK KR, sans-serif" font-weight="bold" font-size="16.00">참고</text>
+<polygon fill="#ffffff" stroke="none" points="829.03,-999.8 829.03,-1035 949.03,-1035 949.03,-999.8 829.03,-999.8"/>
+<polygon fill="none" stroke="#a18bcc" points="829.03,-999.8 829.03,-1035 949.03,-1035 949.03,-999.8 829.03,-999.8"/>
+<text xml:space="preserve" text-anchor="start" x="837.03" y="-1011" font-family="Apple SD Gothic Neo, Noto Sans CJK KR, sans-serif" font-size="16.00">text</text>
+<polygon fill="#ffffff" stroke="none" points="949.03,-999.8 949.03,-1035 1174.03,-1035 1174.03,-999.8 949.03,-999.8"/>
+<polygon fill="none" stroke="#a18bcc" points="949.03,-999.8 949.03,-1035 1174.03,-1035 1174.03,-999.8 949.03,-999.8"/>
+<text xml:space="preserve" text-anchor="start" x="957.03" y="-1011" font-family="Apple SD Gothic Neo, Noto Sans CJK KR, sans-serif" font-size="16.00">source_law</text>
+<polygon fill="#ffffff" stroke="none" points="1174.03,-999.8 1174.03,-1035 1249.03,-1035 1249.03,-999.8 1174.03,-999.8"/>
+<polygon fill="none" stroke="#a18bcc" points="1174.03,-999.8 1174.03,-1035 1249.03,-1035 1249.03,-999.8 1174.03,-999.8"/>
+<text xml:space="preserve" text-anchor="start" x="1182.03" y="-1011" font-family="Apple SD Gothic Neo, Noto Sans CJK KR, sans-serif" font-size="16.00">PK</text>
+<polygon fill="#ffffff" stroke="none" points="1249.03,-999.8 1249.03,-1035 1309.03,-1035 1309.03,-999.8 1249.03,-999.8"/>
+<polygon fill="none" stroke="#a18bcc" points="1249.03,-999.8 1249.03,-1035 1309.03,-1035 1309.03,-999.8 1249.03,-999.8"/>
+<text xml:space="preserve" text-anchor="start" x="1257.03" y="-1011" font-family="Apple SD Gothic Neo, Noto Sans CJK KR, sans-serif" font-size="16.00">NN</text>
+<polygon fill="#ffffff" stroke="none" points="1309.03,-999.8 1309.03,-1035 1564.03,-1035 1564.03,-999.8 1309.03,-999.8"/>
+<polygon fill="none" stroke="#a18bcc" points="1309.03,-999.8 1309.03,-1035 1564.03,-1035 1564.03,-999.8 1309.03,-999.8"/>
+<text xml:space="preserve" text-anchor="start" x="1317.03" y="-1011" font-family="Apple SD Gothic Neo, Noto Sans CJK KR, sans-serif" font-size="16.00">복합 키 구성</text>
+<polygon fill="#f8f8fc" stroke="none" points="829.03,-964.6 829.03,-999.8 949.03,-999.8 949.03,-964.6 829.03,-964.6"/>
+<polygon fill="none" stroke="#a18bcc" points="829.03,-964.6 829.03,-999.8 949.03,-999.8 949.03,-964.6 829.03,-964.6"/>
+<text xml:space="preserve" text-anchor="start" x="837.03" y="-975.8" font-family="Apple SD Gothic Neo, Noto Sans CJK KR, sans-serif" font-size="16.00">text</text>
+<polygon fill="#f8f8fc" stroke="none" points="949.03,-964.6 949.03,-999.8 1174.03,-999.8 1174.03,-964.6 949.03,-964.6"/>
+<polygon fill="none" stroke="#a18bcc" points="949.03,-964.6 949.03,-999.8 1174.03,-999.8 1174.03,-964.6 949.03,-964.6"/>
+<text xml:space="preserve" text-anchor="start" x="957.03" y="-975.8" font-family="Apple SD Gothic Neo, Noto Sans CJK KR, sans-serif" font-size="16.00">source_section</text>
+<polygon fill="#f8f8fc" stroke="none" points="1174.03,-964.6 1174.03,-999.8 1249.03,-999.8 1249.03,-964.6 1174.03,-964.6"/>
+<polygon fill="none" stroke="#a18bcc" points="1174.03,-964.6 1174.03,-999.8 1249.03,-999.8 1249.03,-964.6 1174.03,-964.6"/>
+<text xml:space="preserve" text-anchor="start" x="1182.03" y="-975.8" font-family="Apple SD Gothic Neo, Noto Sans CJK KR, sans-serif" font-size="16.00">PK</text>
+<polygon fill="#f8f8fc" stroke="none" points="1249.03,-964.6 1249.03,-999.8 1309.03,-999.8 1309.03,-964.6 1249.03,-964.6"/>
+<polygon fill="none" stroke="#a18bcc" points="1249.03,-964.6 1249.03,-999.8 1309.03,-999.8 1309.03,-964.6 1249.03,-964.6"/>
+<text xml:space="preserve" text-anchor="start" x="1257.03" y="-975.8" font-family="Apple SD Gothic Neo, Noto Sans CJK KR, sans-serif" font-size="16.00">NN</text>
+<polygon fill="#f8f8fc" stroke="none" points="1309.03,-964.6 1309.03,-999.8 1564.03,-999.8 1564.03,-964.6 1309.03,-964.6"/>
+<polygon fill="none" stroke="#a18bcc" points="1309.03,-964.6 1309.03,-999.8 1564.03,-999.8 1564.03,-964.6 1309.03,-964.6"/>
+<text xml:space="preserve" text-anchor="start" x="1317.03" y="-975.8" font-family="Apple SD Gothic Neo, Noto Sans CJK KR, sans-serif" font-size="16.00">복합 키 구성</text>
+<polygon fill="#ffffff" stroke="none" points="829.03,-929.4 829.03,-964.6 949.03,-964.6 949.03,-929.4 829.03,-929.4"/>
+<polygon fill="none" stroke="#a18bcc" points="829.03,-929.4 829.03,-964.6 949.03,-964.6 949.03,-929.4 829.03,-929.4"/>
+<text xml:space="preserve" text-anchor="start" x="837.03" y="-940.6" font-family="Apple SD Gothic Neo, Noto Sans CJK KR, sans-serif" font-size="16.00">text</text>
+<polygon fill="#ffffff" stroke="none" points="949.03,-929.4 949.03,-964.6 1174.03,-964.6 1174.03,-929.4 949.03,-929.4"/>
+<polygon fill="none" stroke="#a18bcc" points="949.03,-929.4 949.03,-964.6 1174.03,-964.6 1174.03,-929.4 949.03,-929.4"/>
+<text xml:space="preserve" text-anchor="start" x="957.03" y="-940.6" font-family="Apple SD Gothic Neo, Noto Sans CJK KR, sans-serif" font-size="16.00">target_law</text>
+<polygon fill="#ffffff" stroke="none" points="1174.03,-929.4 1174.03,-964.6 1249.03,-964.6 1249.03,-929.4 1174.03,-929.4"/>
+<polygon fill="none" stroke="#a18bcc" points="1174.03,-929.4 1174.03,-964.6 1249.03,-964.6 1249.03,-929.4 1174.03,-929.4"/>
+<text xml:space="preserve" text-anchor="start" x="1182.03" y="-940.6" font-family="Apple SD Gothic Neo, Noto Sans CJK KR, sans-serif" font-size="16.00">PK</text>
+<polygon fill="#ffffff" stroke="none" points="1249.03,-929.4 1249.03,-964.6 1309.03,-964.6 1309.03,-929.4 1249.03,-929.4"/>
+<polygon fill="none" stroke="#a18bcc" points="1249.03,-929.4 1249.03,-964.6 1309.03,-964.6 1309.03,-929.4 1249.03,-929.4"/>
+<text xml:space="preserve" text-anchor="start" x="1257.03" y="-940.6" font-family="Apple SD Gothic Neo, Noto Sans CJK KR, sans-serif" font-size="16.00">NN</text>
+<polygon fill="#ffffff" stroke="none" points="1309.03,-929.4 1309.03,-964.6 1564.03,-964.6 1564.03,-929.4 1309.03,-929.4"/>
+<polygon fill="none" stroke="#a18bcc" points="1309.03,-929.4 1309.03,-964.6 1564.03,-964.6 1564.03,-929.4 1309.03,-929.4"/>
+<text xml:space="preserve" text-anchor="start" x="1317.03" y="-940.6" font-family="Apple SD Gothic Neo, Noto Sans CJK KR, sans-serif" font-size="16.00">복합 키 구성</text>
+<polygon fill="#f8f8fc" stroke="none" points="829.03,-894.2 829.03,-929.4 949.03,-929.4 949.03,-894.2 829.03,-894.2"/>
+<polygon fill="none" stroke="#a18bcc" points="829.03,-894.2 829.03,-929.4 949.03,-929.4 949.03,-894.2 829.03,-894.2"/>
+<text xml:space="preserve" text-anchor="start" x="837.03" y="-905.4" font-family="Apple SD Gothic Neo, Noto Sans CJK KR, sans-serif" font-size="16.00">text</text>
+<polygon fill="#f8f8fc" stroke="none" points="949.03,-894.2 949.03,-929.4 1174.03,-929.4 1174.03,-894.2 949.03,-894.2"/>
+<polygon fill="none" stroke="#a18bcc" points="949.03,-894.2 949.03,-929.4 1174.03,-929.4 1174.03,-894.2 949.03,-894.2"/>
+<text xml:space="preserve" text-anchor="start" x="957.03" y="-905.4" font-family="Apple SD Gothic Neo, Noto Sans CJK KR, sans-serif" font-size="16.00">target_section</text>
+<polygon fill="#f8f8fc" stroke="none" points="1174.03,-894.2 1174.03,-929.4 1249.03,-929.4 1249.03,-894.2 1174.03,-894.2"/>
+<polygon fill="none" stroke="#a18bcc" points="1174.03,-894.2 1174.03,-929.4 1249.03,-929.4 1249.03,-894.2 1174.03,-894.2"/>
+<text xml:space="preserve" text-anchor="start" x="1182.03" y="-905.4" font-family="Apple SD Gothic Neo, Noto Sans CJK KR, sans-serif" font-size="16.00">PK</text>
+<polygon fill="#f8f8fc" stroke="none" points="1249.03,-894.2 1249.03,-929.4 1309.03,-929.4 1309.03,-894.2 1249.03,-894.2"/>
+<polygon fill="none" stroke="#a18bcc" points="1249.03,-894.2 1249.03,-929.4 1309.03,-929.4 1309.03,-894.2 1249.03,-894.2"/>
+<text xml:space="preserve" text-anchor="start" x="1257.03" y="-905.4" font-family="Apple SD Gothic Neo, Noto Sans CJK KR, sans-serif" font-size="16.00">NN</text>
+<polygon fill="#f8f8fc" stroke="none" points="1309.03,-894.2 1309.03,-929.4 1564.03,-929.4 1564.03,-894.2 1309.03,-894.2"/>
+<polygon fill="none" stroke="#a18bcc" points="1309.03,-894.2 1309.03,-929.4 1564.03,-929.4 1564.03,-894.2 1309.03,-894.2"/>
+<text xml:space="preserve" text-anchor="start" x="1317.03" y="-905.4" font-family="Apple SD Gothic Neo, Noto Sans CJK KR, sans-serif" font-size="16.00">복합 키 구성</text>
+<polygon fill="#ffffff" stroke="none" points="829.03,-859 829.03,-894.2 949.03,-894.2 949.03,-859 829.03,-859"/>
+<polygon fill="none" stroke="#a18bcc" points="829.03,-859 829.03,-894.2 949.03,-894.2 949.03,-859 829.03,-859"/>
+<text xml:space="preserve" text-anchor="start" x="837.03" y="-870.2" font-family="Apple SD Gothic Neo, Noto Sans CJK KR, sans-serif" font-size="16.00">text</text>
+<polygon fill="#ffffff" stroke="none" points="949.03,-859 949.03,-894.2 1174.03,-894.2 1174.03,-859 949.03,-859"/>
+<polygon fill="none" stroke="#a18bcc" points="949.03,-859 949.03,-894.2 1174.03,-894.2 1174.03,-859 949.03,-859"/>
+<text xml:space="preserve" text-anchor="start" x="957.03" y="-870.2" font-family="Apple SD Gothic Neo, Noto Sans CJK KR, sans-serif" font-size="16.00">relation</text>
+<polygon fill="#ffffff" stroke="none" points="1174.03,-859 1174.03,-894.2 1249.03,-894.2 1249.03,-859 1174.03,-859"/>
+<polygon fill="none" stroke="#a18bcc" points="1174.03,-859 1174.03,-894.2 1249.03,-894.2 1249.03,-859 1174.03,-859"/>
+<text xml:space="preserve" text-anchor="start" x="1182.03" y="-870.2" font-family="Apple SD Gothic Neo, Noto Sans CJK KR, sans-serif" font-size="16.00">PK</text>
+<polygon fill="#ffffff" stroke="none" points="1249.03,-859 1249.03,-894.2 1309.03,-894.2 1309.03,-859 1249.03,-859"/>
+<polygon fill="none" stroke="#a18bcc" points="1249.03,-859 1249.03,-894.2 1309.03,-894.2 1309.03,-859 1249.03,-859"/>
+<text xml:space="preserve" text-anchor="start" x="1257.03" y="-870.2" font-family="Apple SD Gothic Neo, Noto Sans CJK KR, sans-serif" font-size="16.00">NN</text>
+<polygon fill="#ffffff" stroke="none" points="1309.03,-859 1309.03,-894.2 1564.03,-894.2 1564.03,-859 1309.03,-859"/>
+<polygon fill="none" stroke="#a18bcc" points="1309.03,-859 1309.03,-894.2 1564.03,-894.2 1564.03,-859 1309.03,-859"/>
+<text xml:space="preserve" text-anchor="start" x="1317.03" y="-870.2" font-family="Apple SD Gothic Neo, Noto Sans CJK KR, sans-serif" font-size="16.00">cites / implements / annex</text>
+</g>
+</g>
+</g>
+<text x="40" y="1628" fill="#4f5b6d" font-size="19" font-weight="400" font-family="Apple SD Gothic Neo, Noto Sans CJK KR, sans-serif">article_links는 법령명과 조문 문자열로 연결한다. 문서 또는 조각을 참조하는 DB FK가 없어 독립 테이블로 표시한다.</text>
+<text x="40" y="1659" fill="#4f5b6d" font-size="19" font-weight="400" font-family="Apple SD Gothic Neo, Noto Sans CJK KR, sans-serif">chunks.parent_chunk_id: 부모 0..1, 자식 0..N. 임베딩은 pgvector vector(1024).</text>
+</svg>
