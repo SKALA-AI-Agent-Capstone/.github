@@ -68,7 +68,7 @@ flowchart LR
 
 ## 시스템 아키텍처
 
-[<img width="100%" alt="VeRo 시스템 아키텍처 1차 개선안" src="./assets/architecture_fin.png" />](./assets/architecture_fin.png)
+[<img width="100%" alt="VeRo 시스템 아키텍처 1차 개선안" src="./assets/architecture_v1.webp" />](./assets/architecture_v1.webp)
 
 OCR·VLM 직렬 처리와 정합성 검증 → Agent 도구 선택 → 독립 모델의 타당성 검증 → 문구 재작성과 사람의 결정으로 이어지는 **1차 개선안**입니다. 과금은 Spring 내부에서 처리하고, 업무·지식·Agent 상태는 PostgreSQL 안에서 구분합니다.
 
@@ -93,21 +93,21 @@ OCR·VLM 직렬 처리와 정합성 검증 → Agent 도구 선택 → 독립 �
 
 ### RAG 지식 저장소 · knowledge
 
-[<img width="100%" alt="RAG 지식 저장소 ERD: document_versions, chunks, article_links와 문서·부모 조각 관계" src="./assets/erd/01-knowledge.svg" />](./assets/erd/01-knowledge.svg)
+[<img width="100%" alt="RAG 지식 저장소 ERD: document_versions, chunks, article_links와 문서·부모 조각 관계" src="./assets/erd/01-knowledge.webp" />](./assets/erd/01-knowledge.webp)
 
 문서 버전과 청크, 청크의 부모·자식 관계를 저장합니다. 임베딩은 pgvector `vector(1024)`를 사용합니다. `article_links`는 법령명과 조문 문자열로 연결하며 문서·청크에 대한 DB FK는 없습니다.
 
 
 ### 인증과 크레딧 · app
 
-[<img width="100%" alt="인증과 크레딧 ERD: 기업, 사용자, 세션, 갱신 토큰, 크레딧 주문·적립·차감·정책" src="./assets/erd/02-auth-credit.svg" />](./assets/erd/02-auth-credit.svg)
+[<img width="100%" alt="인증과 크레딧 ERD: 기업, 사용자, 세션, 갱신 토큰, 크레딧 주문·적립·차감·정책" src="./assets/erd/02-auth-credit.webp" />](./assets/erd/02-auth-credit.webp)
 
 기업과 사용자, 로그인 세션, 크레딧 구매·적립·검토별 차감을 관리합니다. `review_credit_charges.review_id`는 검토 삭제 후에도 과금 기록을 보존하기 위해 DB FK로 연결하지 않습니다.
 
 
 ### 검토와 제품 및 증빙 · app
 
-[<img width="100%" alt="검토와 제품 및 증빙 ERD: 제품, 증빙과 개정본, 검토, 원본 파일, 비동기 작업, 위반과 문구 재작성" src="./assets/erd/03-review-product.svg" />](./assets/erd/03-review-product.svg)
+[<img width="100%" alt="검토와 제품 및 증빙 ERD: 제품, 증빙과 개정본, 검토, 원본 파일, 비동기 작업, 위반과 문구 재작성" src="./assets/erd/03-review-product.webp" />](./assets/erd/03-review-product.webp)
 
 제품과 시험성적서 등 증빙, 광고 검토, 비동기 작업, 문구별 결정과 재작성 이력을 관리합니다. 버전별 입력과 분석 결과는 `reviews.document` JSONB에 저장합니다. 검토 전체 승인 컬럼은 V24에서 제거됐으며, 문구별 결정은 `violations`에 유지됩니다.
 
@@ -123,6 +123,48 @@ OCR·VLM 직렬 처리와 정합성 검증 → Agent 도구 선택 → 독립 �
 | [**frontend**](https://github.com/SKALA-AI-Agent-Capstone/frontend) | 랜딩, 로그인, 광고 업로드와 진행 화면, 문구별 결정과 승인, 크레딧 결제, 한국어와 영어 | Vue 3, Vite, Pinia |
 | [**backend**](https://github.com/SKALA-AI-Agent-Capstone/backend) | 인증과 기업 격리, 검토 이력과 버전, 작업 큐, SSE 중계, 크레딧, 결정 저장 | Java 21, Spring Boot 3, RabbitMQ |
 | [**ai_agent**](https://github.com/SKALA-AI-Agent-Capstone/ai_agent) | LangGraph Agent, rag-mcp, business-mcp, 평가셋 | Python, FastAPI, LangGraph, FastMCP |
+
+<br/>
+
+## 로컬에서 실행하기
+
+Docker(Compose 포함)와 Python 3가 필요합니다. 세 저장소를 같은 상위 폴더에 받습니다.
+
+```sh
+mkdir vero && cd vero
+git clone --branch main https://github.com/SKALA-AI-Agent-Capstone/backend.git
+git clone --branch main https://github.com/SKALA-AI-Agent-Capstone/ai_agent.git
+git clone https://github.com/SKALA-AI-Agent-Capstone/frontend.git
+
+# backend가 검증한 AI 커밋으로 맞춥니다
+cd ai_agent && git checkout $(cat ../backend/ai-agent.ref) && cd ..
+
+# backend/.env를 만들고 DB 비밀번호, JWT 서명 키 등 로컬 비밀값을 생성합니다
+cd backend
+python3 scripts/bootstrap.py
+
+# PostgreSQL, Redis, RabbitMQ, API, Agent, 두 MCP, 화면을 함께 띄웁니다
+docker compose --profile web up --build -d
+```
+
+처음 빌드가 끝나면 **http://localhost:5173** 에서 회원가입으로 기업 작업공간을 만들고 시작합니다.
+
+| 주소 | 내용 |
+| --- | --- |
+| http://localhost:5173 | 화면 (Vue) |
+| http://localhost:8080 | 업무 API (Spring Boot) |
+
+실제 AI 분석과 공공 API 조회는 `backend/.env`에 키를 넣어야 동작합니다. 키는 Git에 올리지 않습니다.
+
+| 변수 | 쓰임 |
+| --- | --- |
+| `OPENAI_API_KEY` | 문구 판정, 이미지 읽기(VLM), 법령 임베딩 |
+| `MFDS_SERVICE_KEY`, `KIPRIS_SERVICE_KEY` | 식약처 기능성 보고 조회, KIPRIS Plus 특허 조회 |
+| `TOSS_TEST_CLIENT_KEY`, `TOSS_TEST_SECRET_KEY` | 크레딧 테스트 결제 |
+| `LANGSMITH_API_KEY` | 선택. Agent 실행 추적 |
+
+키를 바꾼 뒤에는 `docker compose --profile web up -d`로 다시 띄웁니다. 끝낼 때는 `docker compose --profile web down`을 실행합니다. 데이터는 Docker 볼륨에 남습니다.
+자세한 설정과 서비스별 개발 방법은 [backend README](https://github.com/SKALA-AI-Agent-Capstone/backend#readme)와 [개발 환경 문서](https://github.com/SKALA-AI-Agent-Capstone/backend/blob/main/docs/02-development.md)를 참고하세요.
 
 <br/>
 
